@@ -314,29 +314,6 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith("-ping")) {
-    message.channel.send({
-        embed: new Discord.RichEmbed()
-            .setAuthor(client.user.username,client.user.avatarURL)
-            .setThumbnail(client.user.avatarURL)
-            .setColor('RANDOM')
-            .setTitle('``INFO Epic.`` ')
-            .addField('``Uptime``', [timeCon(process.uptime())], true)
-            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
-            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
-            .addField('``servers``', [client.guilds.size], true)
-            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
-            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
-            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
-            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
-                  .addField('``My Prefix``' , `*` , true)
-                  .addField('``My Language``' , `[ Java Script ]` , true)
-                  .setFooter('By | 🔥 EpicKinG. ♔#3451')
-    })
-}
-});
-
-client.on('message', message => {
     if (message.author.codes) return;
     if (!message.content.startsWith(prefix)) return;
   
@@ -361,5 +338,17 @@ client.on('message', message => {
   
   message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `)
   
+  }
+  });
+
+client.on('message', message => {
+    let args = message.content.split(" ").slice(1);
+if (message.content.startsWith(prefix + 'clear')) {
+ let args = message.content.split(" ").slice(1)
+    let messagecount = parseInt(args);
+    if (args > 100) return message.reply("اعلى حد للمسح هو 100").then(messages => messages.delete(5000))
+    if (!messagecount) return message.reply("ااختر كمية المسح من 1-100").then(messages => messages.delete(5000))
+    message.channel.fetchMessages({limit: messagecount + 1}).then(messages => message.channel.bulkDelete(messages));
+    message.channel.send(`\`${args}\` تم المسح`).then(messages => messages.delete(5000));
   }
   });
