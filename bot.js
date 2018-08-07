@@ -296,3 +296,70 @@ client.on('message', async message => {
       message.channel.send(`**:white_check_mark: ${mention.user.username} unmuted in the server ! :neutral_face:  **  `);
   }
 });
+
+client.on('message', message => {
+  if(message.content.startsWith(prefix + "invites")) {
+   message.guild.fetchInvites().then(invs => {
+     let user = message.mentions.users.first() || message.author
+     let personalInvites = invs.filter(i => i.inviter.id === user.id);
+     let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+              let mmmmEmbed = new Discord.RichEmbed()
+                        .setAuthor(client.user.username)
+                        .setThumbnail(message.author.avatarURL)
+.addField(` لقد قمت بدعوة :`, ` ${inviteCount} `)
+          .setFooter(`- Requested By: ${message.author.tag}`);
+          message.channel.send(mmmmEmbed)
+});
+ }
+});
+
+client.on('message', message => {
+    if (message.content.startsWith("-ping")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .setTitle('``INFO Epic.`` ')
+            .addField('``Uptime``', [timeCon(process.uptime())], true)
+            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
+            .addField('``servers``', [client.guilds.size], true)
+            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
+            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
+            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
+            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
+                  .addField('``My Prefix``' , `*` , true)
+                  .addField('``My Language``' , `[ Java Script ]` , true)
+                  .setFooter('By | 🔥 EpicKinG. ♔#3451')
+    })
+}
+});
+
+client.on('message', message => {
+    if (message.author.codes) return;
+    if (!message.content.startsWith(prefix)) return;
+  
+    let command = message.content.split(" ")[0];
+    command = command.slice(prefix.length);
+  
+    let args = message.content.split(" ").slice(1);
+  
+    if (command == "ban") {
+                 if(!message.channel.guild) return message.reply('** This command only for servers**');
+           
+    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
+    if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+    let user = message.mentions.users.first();
+    
+    if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+    if (!message.guild.member(user)
+    .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
+  
+  
+    message.guild.member(user).ban(7, user);
+  
+  message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `)
+  
+  }
+  });
