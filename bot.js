@@ -268,22 +268,3 @@ lient.on('message', async message => {
       message.channel.send(`**:white_check_mark: ${mention.user.username} unmuted in the server ! :neutral_face:  **  `);
   }
 });
-
-if (command == "ban") {
-                 if(!message.channel.guild) return message.reply('** This command only for servers**');
-           
-    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
-    if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-    let user = message.mentions.users.first();
-    
-    if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-    if (!message.guild.member(user)
-    .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
-  
-  
-    message.guild.member(user).ban(7, user);
-  
-  message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `)
-  
-  }
-  });
