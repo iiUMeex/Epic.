@@ -352,3 +352,141 @@ if (message.content.startsWith(prefix + 'clear')) {
     message.channel.send(`\`${args}\` تم المسح`).then(messages => messages.delete(5000));
   }
   });
+
+client.on('message', message => {
+if (message.content.startsWith(prefix + 'PHelp')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
+    let pages = [`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+:earth_africa: The Public Commands :earth_africa: 
+1༺༻  -user  | يعرض لك ملفك༺༻
+2༺༻  -invite  | لدعوة البوت في سيرفر༺༻
+3༺༻  -invites  |  يعرض بك كم دعوة دعوت༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+Click On ▶ To Go Administor Side
+   `
+,`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+:closed_lock_with_key: Administor Coomands:closed_lock_with_key: 
+1༺༻  -clear 1-100 | يمسح الشات بعدد༺༻
+2༺༻  -bc | لأرسال رساله لجميع أعضاء السيرفر༺༻
+3༺༻  -ban | لتبنيد شخص في السيرفر༺༻
+3༺༻  -mute | لأعطاء عضوا ميوت༺༻
+3༺༻  -unmute | لفك ميوت عن شخص༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+Click On ▶ To Go To Bot Info
+   `,`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+1༺༻  There is Commands Just For NotGucci | Bot By:🔥 EpicKinG. ♔#3451༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+   `]
+    let page = 1;
+
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setFooter(`Page ${page} of ${pages.length}`)
+    .setDescription(pages[page-1])
+
+    message.author.sendEmbed(embed).then(msg => {
+
+        msg.react('◀').then( r => {
+            msg.react('▶')
+
+
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+
+
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
+        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+
+
+
+        backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+            if (page === pages.length) return;
+            page++;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        })
+    })
+    }
+}); 
+
+
+client.on('message', message => {
+if (message.content.startsWith(prefix + 'Help')) { /// And This is The Channel One Send The Help In Channel // Code By NotGucci
+    let pages = [`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+:earth_africa: The Public Commands :earth_africa: 
+1༺༻  -user  | يعرض لك ملفك༺༻
+2༺༻  -invite  | لدعوة البوت في سيرفر༺༻
+3༺༻  -invites  |  يعرض بك كم دعوة دعوت༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+Click On ▶ To Go Administor Side
+   `
+,`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+:closed_lock_with_key: Administor Coomands:closed_lock_with_key: 
+1༺༻  -clear 1-100 | يمسح الشات بعدد༺༻
+2༺༻  -bc | لأرسال رساله لجميع أعضاء السيرفر༺༻
+3༺༻  -ban | لتبنيد شخص في السيرفر༺༻
+3༺༻  -mute | لأعطاء عضوا ميوت༺༻
+3༺༻  -unmute | لفك ميوت عن شخص༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+Click On ▶ To Go To Bot Info
+   `,`
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+1༺༻  There is Commands Just For NotGucci | Bot By:🔥 EpicKinG. ♔#3451༺༻
+༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
+   `]
+ let page = 1;
+
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setFooter(`Page ${page} of ${pages.length}`)
+    .setDescription(pages[page-1])
+
+    message.channel.sendEmbed(embed).then(msg => {
+
+        msg.react('◀').then( r => {
+            msg.react('▶')
+
+           setTimeout(() => {
+        msg.delete
+    }, 60 * 1000)
+
+        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
+        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
+
+
+        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
+        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
+
+
+
+        backwards.on('collect', r => {
+            if (page === 1) return;
+            page--;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        forwards.on('collect', r => {
+            if (page === pages.length) return;
+            page++;
+            embed.setDescription(pages[page-1]);
+            embed.setFooter(`Page ${page} of ${pages.length}`);
+            msg.edit(embed)
+        })
+        })
+    })
+    }
+}); 
