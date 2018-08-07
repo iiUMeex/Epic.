@@ -363,6 +363,7 @@ message.author.send(
 5| -unmute | لفك ميوت عن شخص
 6| -invite | ♥ لدعوة البوت في سيرفرك ♥
 7| -invites | يعرض لك كم دعوة دعوت
+8| -voicesetup | سيت فويس اون لاين
 `
 
 
