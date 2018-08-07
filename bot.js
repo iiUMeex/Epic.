@@ -84,8 +84,6 @@ message.channel.sendEmbed(id);
   
 });
 
-client.login("NDc2NDUyNzEzNDI1NjY2MDQ5.Dkt0mA.caeruTd9f4lUDOUijcpXWjQGUEo")
-
 client.on('guildMemberAdd', member => {
   let channel = member.guild.channels.find('name', 'welcome');
   let memberavatar = member.user.avatarURL
