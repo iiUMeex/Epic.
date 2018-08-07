@@ -355,7 +355,6 @@ if (message.content.startsWith(prefix + 'clear')) {
 
 client.on('message', message => {
 if (message.content === '-help'){
-        msg.reply('**تـــم | تـــم إرســالك في الخــاص**');
 message.author.send(
 `1| -user | يعرض لك كم دعوة دعوة
 2| -clear | يمسح الي تبي بعدد
