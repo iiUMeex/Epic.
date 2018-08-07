@@ -367,5 +367,5 @@ message.author.send(`
 
 
 
-`);
+);
 }});
