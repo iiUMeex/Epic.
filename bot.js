@@ -354,7 +354,7 @@ if (message.content.startsWith(prefix + 'clear')) {
   });
 
 client.on('message', message => {
-if (message.content.startsWith(prefix + 'PHelp')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
+if (message.content.startsWith(prefix + 'phelp')) { /// This is The DMS Code Send The Help In DMS // Code By NotGucci
     let pages = [`
 ༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
 :earth_africa: The Public Commands :earth_africa: 
@@ -376,7 +376,7 @@ Click On ▶ To Go Administor Side
 Click On ▶ To Go To Bot Info
    `,`
 ༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
-1༺༻  There is Commands Just For NotGucci | Bot By:🔥 EpicKinG. ♔#3451༺༻
+1༺༻  There is Commands Just For EpicKinG. | Bot By:🔥 EpicKinG. ♔#3451༺༻
 ༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
    `]
     let page = 1;
@@ -422,13 +422,13 @@ Click On ▶ To Go To Bot Info
 
 
 client.on('message', message => {
-if (message.content.startsWith(prefix + 'Help')) { /// And This is The Channel One Send The Help In Channel // Code By NotGucci
+if (message.content.startsWith(prefix + 'help')) { /// And This is The Channel One Send The Help In Channel // Code By NotGucci
     let pages = [`
 ༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
 :earth_africa: The Public Commands :earth_africa: 
 1༺༻  -user  | يعرض لك ملفك༺༻
 2༺༻  -invite  | لدعوة البوت في سيرفر༺༻
-3༺༻  -invites  |  يعرض بك كم دعوة دعوت༺༻
+3༺༻  -invites  |  يعرض لك كم دعوة دعوت༺༻
 ༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
 Click On ▶ To Go Administor Side
    `
@@ -444,7 +444,7 @@ Click On ▶ To Go Administor Side
 Click On ▶ To Go To Bot Info
    `,`
 ༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
-1༺༻  There is Commands Just For NotGucci | Bot By:🔥 EpicKinG. ♔#3451༺༻
+1༺༻  There is Commands Just For EpicKinG. | Bot By:🔥 EpicKinG. ♔#3451༺༻
 ༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻༺▇༻
    `]
  let page = 1;
