@@ -356,15 +356,15 @@ if (message.content.startsWith(prefix + 'clear')) {
 client.on('message', message => {
 if (message.content === '-help'){
         msg.reply('**تـــم | تـــم إرســالك في الخــاص**');
-message.author.send(`
-**1| -user | يعرض لك كم دعوة دعوة
+message.author.send(
+`1| -user | يعرض لك كم دعوة دعوة
 2| -clear | يمسح الي تبي بعدد
 3| -ban | يبند اي شخص تبيه
 4| -mute | يعطيه ميوت لشخص الي تبيه
 5| -unmute | لفك ميوت عن شخص
 6| -invite | ♥ لدعوة البوت في سيرفرك ♥
-7| -invites | **يعرض لك كم دعوة دعوت
-
+7| -invites | يعرض لك كم دعوة دعوت
+`
 
 
 );
