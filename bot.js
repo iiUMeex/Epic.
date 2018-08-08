@@ -398,14 +398,6 @@ General's Commands. :earth_asia:
 -invite - معلومات عن الدعوة :ledger: 
         **
         `)
-   
-   client.on('message', message => {
-           if (message.content === "-help") {
-           let embed = new Discord.RichEmbed()
-        .setAuthor(message.author.username)
-        .setColor("#9B59B6")
-        .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
-           
     message.author.send(embed)
 }
      
