@@ -393,7 +393,7 @@ client.on('message', async message => {
 });
 
 client.on('message', message => {
-ar prefix = '-';
+ar prefix = '$';
     if(message.content.startsWith(prefix+'help')) {
    const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
