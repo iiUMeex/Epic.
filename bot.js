@@ -388,16 +388,24 @@ client.on('message', message => {
 ┃╰━━┫┃╱╱╭┫┣┫╰━╯┃╭╮
 ╰━━━┻╯╱╱╰━━┻━━━╯╰╯
 General's Commands. :earth_asia:
--{prefix}server - معلومات عن سيرفرك :scroll:
--{prefix}user - ملف حقك :flashlight:
--{prefix}ban - لتبنيد شخص في السيرفر :airplane: 
--{prefix}mute - لأعطاء ميوت لشخص :zipper_mouth: 
--{prefix}unmute - لفك ميوت عن شخص  :neutral_face: 
--{prefix}voicesetup - سيت فويس اون لاين :microphone:
--{prefix}invites - يعرض لك كم دعوة دعوت في السيرفر :green_book: 
--{prefix}invite - معلومات عن الدعوة :ledger: 
+-server - معلومات عن سيرفرك :scroll:
+-user - ملف حقك :flashlight:
+-ban - لتبنيد شخص في السيرفر :airplane: 
+-mute - لأعطاء ميوت لشخص :zipper_mouth: 
+-unmute - لفك ميوت عن شخص  :neutral_face: 
+-voicesetup - سيت فويس اون لاين :microphone:
+-invites - يعرض لك كم دعوة دعوت في السيرفر :green_book: 
+-invite - معلومات عن الدعوة :ledger: 
         **
         `)
+   
+   client.on('message', message => {
+           if (message.content === "-help") {
+           let embed = new Discord.RichEmbed()
+        .setAuthor(message.author.username)
+        .setColor("#9B59B6")
+        .addField(" Done | تــــم" , " |  تــــم ارســالك في الخــاص")
+           
     message.author.send(embed)
 }
 });
