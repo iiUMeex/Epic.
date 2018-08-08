@@ -402,3 +402,12 @@ General's Commands. :earth_asia:
 }
      
 });
+
+client.on('message', msg => {
+    if (msg.content === '-help') {
+      msg.reply(' Done | تــــم" , " |  تــــم ارســالك في الخــاص');
+    }
+  });
+
+  //كود الرد التلقائي
+  //By EpicKinG.
