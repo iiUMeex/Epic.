@@ -406,7 +406,7 @@ General's Commands. :earth_asia:
 
 client.on('message', msg => {
     if (msg.content === '-help') {
-      msg.reply(' Done | تــــم" , " |  تــــم ارســالك في الخــاص');
+      msg.reply('**Done | تــــم" , " |  تــــم ارســالك في الخــاص**');
     }
   });
 
