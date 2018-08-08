@@ -464,7 +464,7 @@ client.on("message", message => {
 client.on('message', message => {
     if (message.content === "-createroles") {
     if(!message.channel.guild) return message.channel.send('This Command Only For Servers !')
-            if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**);
+            if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(**{message.author.username} You Dont Have ``MANAGE_ROLES`` Premission**);
 
                      message.guild.createRole({ name: "Owner", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Co-Owner", color: "#ffffff", permissions: [] })
