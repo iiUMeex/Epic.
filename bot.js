@@ -391,3 +391,31 @@ client.on('message', async message => {
   });
   }
 });
+
+client.on('message', message => {
+ar prefix = '$';
+    if(message.content.startsWith(prefix+'help')) {
+   const embed = new Discord.RichEmbed()
+.setColor('RANDOM')
+        .setDescription(`**
+
+╭━━━┳━━━┳━━┳━━━╮
+┃╭━━┫╭━╮┣┫┣┫╭━╮┃
+┃╰━━┫╰━╯┃┃┃┃┃╱╰╯
+┃╭━━┫╭━━╯┃┃┃┃╱╭╮
+┃╰━━┫┃╱╱╭┫┣┫╰━╯┃╭╮
+╰━━━┻╯╱╱╰━━┻━━━╯╰╯
+General's Commands. :earth_asia:
+${prefix}server - معلومات عن سيرفرك :scroll:
+${prefix}user - ملف حقك :flashlight:
+${prefix}ban - لتبنيد شخص في السيرفر :airplane: 
+${prefix}mute - لأعطاء ميوت لشخص :zipper_mouth: 
+${prefix}unmute - لفك ميوت عن شخص  :neutral_face: 
+${prefix}voicesetup - سيت فويس اون لاين :microphone:
+${prefix}invites - يعرض لك كم دعوة دعوت في السيرفر :green_book: 
+${prefix}invite - معلومات عن الدعوة :ledger: 
+        **
+        `)
+    message.author.send(embed)
+}
+});
