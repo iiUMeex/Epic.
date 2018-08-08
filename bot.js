@@ -353,23 +353,6 @@ if (message.content.startsWith(prefix + 'clear')) {
   }
   });
 
-client.on('message', message => {
-if (message.content === '-help'){
-message.author.send(
-`1| -user | يعرض لك كم دعوة دعوة
-2| -clear | يمسح الي تبي بعدد
-3| -ban | يبند اي شخص تبيه
-4| -mute | يعطيه ميوت لشخص الي تبيه
-5| -unmute | لفك ميوت عن شخص
-6| -invite | ♥ لدعوة البوت في سيرفرك ♥
-7| -invites | يعرض لك كم دعوة دعوت
-8| -voicesetup | سيت فويس اون لاين
-`
-
-
-);
-}});
-
 client.on('message', async message => {
   if(message.content.startsWith(prefix + "voicesetup")) {
   if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **ليس لديك الصلاحيات الكافية**');
