@@ -395,7 +395,7 @@ General's Commands. :earth_asia:
 -unmute - لفك ميوت عن شخص  :neutral_face: 
 -voicesetup - سيت فويس اون لاين :microphone:
 -invites - يعرض لك كم دعوة دعوت في السيرفر :green_book: 
--invite - معلومات عن الدعوة :ledger:
+-invite - لدعوة البوت في سيرفرك :ledger:
 -role الرتبة الي تبيها @اسم الشخص :busts_in_silhouette: 
         **
         `)
