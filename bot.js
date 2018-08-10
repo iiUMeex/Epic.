@@ -758,3 +758,36 @@ if (message.content.startsWith(prefix+"ch")) {
                 message.guild.createChannel(`${argrst}`, 'text')
       }
 });
+
+const Discord = require('discord.js');
+const fs = require('fs');
+const client = new Discord.Client({disableEveryone: true});
+client.on('ready', () => {
+console.log(`Logged in as ${client.user.tag}`);    
+}); 
+let points = JSON.parse(fs.readFileSync('points.json', 'utf8'));
+client.on('message', message => {
+    if (!points[message.author.id]) points[message.author.id] = {points : 0}
+    if (message.content == 'نقاطي'){
+const embed = new Discord.RichEmbed()
+        .setAuthor(message.author.username,message.author.avatarURL)
+        .setColor('RANDOM')
+.addField(`**${message.author.username}**,`,`نقاطك : ${points[message.author.id].points}`)
+        .setFooter('العاب وبس', client.user.avatarURL);
+        message.channel.sendEmbed(embed)
+    };
+    if (message.content == "فكك") {  
+if(message.channel.name !== 'games') return message.reply('رسالة التحذير');
+var x = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'عناد' , 'مكوه' , 'هكونا مطاطا' , ' اختاره والكل طاره '];
+        var x2 = ['ض ف د ع', 'ط ي ا ر ة', 'ر ع و د ي', 'ت ف ك ي ك', 'ت ج ر ب ة', 'م د ر س ة', 'م ع ل م', 'ن ق ا ط', 'ع ن ا د', 'م ك و ه', 'ه ك و ن ا م ط ا ط ا', 'ط ا ر ه و ا ل ك ل ا خ ت ا ر ه'];
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`فكك الكلمة الآتية :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3] , {
+                maxMatches : 1,
+                time : 20000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send('❌ لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح')
+                    message.channel.sendEmbed(embed)
+        })
