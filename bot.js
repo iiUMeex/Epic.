@@ -400,6 +400,7 @@ General's Commands. :earth_asia:
 -ping يعرض لك البينق حق البوت :ping_pong: 
 -vc  لصنع رووم صوتي :microphone: 
 -ch لصنع رووم كتابي :pencil2: 
+-mcskin لرؤية سكنك في ماين كرافت :regional_indicator_m: :regional_indicator_c: 
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الميوزك
 -play ⇏ لتشغيل أغنية برآبط أو بأسم :musical_note: 
