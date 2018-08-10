@@ -403,7 +403,8 @@ General's Commands. :earth_asia:
 -mcskin لرؤية سكنك في ماين كرافت :regional_indicator_m: :regional_indicator_c: 
 -cr-colors لصنع الوان :rainbow: 
 -del-colors  لمسح الوان :rainbow: 
--color number لاختيار اللون الي تبيه :rainbow: 
+-color number لاختيار اللون الي تبيه :rainbow:
+-colors لعرض قائمة الوان :regional_indicator_c:
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الميوزك
 -play ⇏ لتشغيل أغنية برآبط أو بأسم :musical_note: 
