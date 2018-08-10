@@ -789,3 +789,41 @@ var title = args[1]
                    });
           }
 });
+
+let points = JSON.parse(fs.readFileSync('points.json', 'utf8'));
+client.on('message', message => {
+    if (!points[message.author.id]) points[message.author.id] = {points : 0}
+    if (message.content == 'نقاطي'){
+        var embed = new RichEmbed()
+        .setAuthor(message.author.username,message.author.avatarURL)
+        .addField(`نقاطك : ${points[message.author.id].points}`,'By : Xivo',   true)
+        .setColor('RANDOM')
+        .setFooter('العاب وبس', client.user.avatarURL);
+        message.channel.sendEmbed(embed)
+    };
+    if (message.content == "فكك") {    
+        var x = ['ضفدع', 'طيارة', 'رعودي', 'تفكيك', 'تجربة', 'مدرسة', 'معلم' , 'نقاط' , 'اكسيفو' , 'مكوه' , 'هكونا مطاطا' , 'اكسيفو ذا بيست'];
+        var x2 = ['ض ف د ع', 'ط ي ا ر ة', 'ر ع و د ي', 'ت ف ك ي ك', 'ت ج ر ب ة', 'م د ر س ة', 'م ع ل م', 'ن ق ا ط', 'ا ك س ي ف و', 'م ك و ه', 'ه ك و ن ا م ط ا ط ا', 'ا ك س ي ف و ذ ا ب ي س ت'];
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`فكك الكلمة الآتية :${x[x3]}, لديك 20 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 20000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send('❌ لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح')
+                    message.channel.sendEmbed(embed)
+        })
+        r.then(s=> {
+
+            points[message.author.id].points +=1
+            message.channel.send(`✅ لقد قمت بكتابة الجواب الصحيح بالوقت المناسب
+ ─═════**{نقاطك:${points[message.author.id].points}}**═════─`);
+               message.channel.sendEmbed(embed)
+        })
+        })
+    }
+    fs.writeFile('points.json', JSON.stringify(points), (err) => {
+        if (err) console.error(err);
+    })
