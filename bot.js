@@ -396,17 +396,20 @@ General's Commands. :earth_asia:
 -voicesetup - سيت فويس اون لاين :microphone:
 -invites - يعرض لك كم دعوة دعوت في السيرفر :green_book: 
 -invite - لدعوة البوت في سيرفرك :ledger:
--role الرتبة الي تبيها @اسم الشخص :busts_in_silhouette: 
+-role الرتبة الي تبيها @اسم الشخص :busts_in_silhouette:
+-ping يعرض لك البينق حق البوت :ping_pong: 
+-vc  لصنع رووم صوتي :microphone: 
+-ch لصنع رووم كتابي :pencil2: 
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الميوزك
--play ⇏ لتشغيل أغنية برآبط أو بأسم
--skip ⇏ لتجآوز الأغنية الحآلية
--pause ⇏ إيقآف الأغنية مؤقتا
--resume ⇏ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
--vol ⇏ لتغيير درجة الصوت 100 - 0
--stop ⇏ لإخرآج البوت من الروم
--np ⇏ لمعرفة الأغنية المشغلة حآليا
--queue ⇏ لمعرفة قآئمة التشغيل
+-play ⇏ لتشغيل أغنية برآبط أو بأسم :musical_note: 
+-skip ⇏ لتجآوز الأغنية الحآلية :musical_note: 
+-pause ⇏ إيقآف الأغنية مؤقتا :musical_note:
+-resume ⇏  لموآصلة الإغنية بعد إيقآفهآ مؤقتا :musical_note:
+-vol ⇏ لتغيير درجة الصوت 100 - 0 :musical_note:
+-stop ⇏ لإخرآج البوت من الروم :musical_note:
+-np ⇏  لمعرفة الأغنية المشغلة حآليا :musical_note:
+-queue ⇏ لمعرفة قآئمة التشغيل :musical_note:
         **
         `)
     message.author.send(embed)
@@ -730,3 +733,28 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
     
   ; }
    }) 
+
+client.on('message', message => {
+    if (message.author.id === client.user.id) return;
+            if (message.content.startsWith(prefix + "ping")) {
+        message.channel.sendMessage(':ping_pong: Pong! In `' + `${client.ping}` + ' ms`');
+    }
+});
+
+client.on('message', message => {
+if (message.content.startsWith(prefix+"vc")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`,'voice')
+          
+        }
+});
+
+
+client.on('message', message => {
+if (message.content.startsWith(prefix+"ch")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`, 'text')
+      }
+});
