@@ -406,7 +406,6 @@ General's Commands. :earth_asia:
 -color number لاختيار اللون الي تبيه :rainbow:
 -colors لعرض قائمة الوان :regional_indicator_c:
 -Lmgtfy تبحث مثلا في قوقل :regional_indicator_g::regional_indicator_o::regional_indicator_o::regional_indicator_g::regional_indicator_l:
--cal الاله الحاسبه
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -saraha للعب لعبة صراحه :regional_indicator_s: :regional_indicator_r: 
@@ -7686,30 +7685,3 @@ if (message.content.startsWith(prefix + `Lmgtfy`)) {
         if (!rebel) return message.channel.send(`من فضلك أكتب البحث , مثآل : \`${prefix}Lmgtfy How to create a Discord server\`.`);
         else message.channel.send(`"${textQuery}"\n**<${url}>**`);
 }}});
-
-var prefix = "-";
-
-const math = require('math-expression-evaluator');
-const stripIndents = require('common-tags').stripIndents;
-
-client.on('message', msg => {
- if (msg.content.startsWith(prefix + 'cal')) {
-    let args = msg.content.split(" ").slice(1);
-        const question = args.join(' ');
-    if (args.length < 1) {
-        msg.reply('Specify a equation, please.');
-} else {    let answer;
-    try {
-        answer = math.eval(question);
-    } catch (err) {
-        msg.reply(`Error: ${err}`);
-    }
-
-    const embed = new Discord.RichEmbed()
-    .addField("**السؤال**: ",`**${question}**`, true)
-    .addField("**الناتج**: ",`**${answer}**`, true)
-    .setFooter("Epic. حاسبه")
-    msg.channel.send(embed)
-    }
-};
-});
