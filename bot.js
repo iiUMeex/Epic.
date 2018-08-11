@@ -405,7 +405,8 @@ General's Commands. :earth_asia:
 -del-colors  لمسح الوان :rainbow: 
 -color number لاختيار اللون الي تبيه :rainbow:
 -colors لعرض قائمة الوان :regional_indicator_c:
--s تبحث مثلا في قوقل :regional_indicator_g::regional_indicator_o::regional_indicator_o::regional_indicator_g::regional_indicator_l:
+-Lmgtfy تبحث مثلا في قوقل :regional_indicator_g::regional_indicator_o::regional_indicator_o::regional_indicator_g::regional_indicator_l:
+-cal الاله الحاسبه
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -saraha للعب لعبة صراحه :regional_indicator_s: :regional_indicator_r: 
@@ -7677,7 +7678,7 @@ client.on('message', message => {
  client.on('message', async message => {
 if(message.author.bot) return;
 if (message.channel.guild) {
-if (message.content.startsWith(prefix + `s`)) {
+if (message.content.startsWith(prefix + `Lmgtfy`)) {
             const textQuery = message.content.split(' ').slice(1).join(' ');
         const rebel = encode(message.content.split(' ').slice(1).join(' '));
         const url = `https://lmgtfy.com/?q=${rebel}`;
@@ -7685,3 +7686,31 @@ if (message.content.startsWith(prefix + `s`)) {
         if (!rebel) return message.channel.send(`من فضلك أكتب البحث , مثآل : \`${prefix}Lmgtfy How to create a Discord server\`.`);
         else message.channel.send(`"${textQuery}"\n**<${url}>**`);
 }}});
+
+const math = require('math-expression-evaluator');
+const stripIndents = require('common-tags').stripIndents;
+
+client.on('message', msg => {
+if (msg.content.startsWith(prefix + 'cal')) {
+  let args = msg.content.split(" ").slice(1);
+      const question = args.join(' ');
+  if (args.length < 1) {
+      msg.reply('**من فضلك .. قم بكتابة سؤال **.');
+} else {    let answer;
+  try {
+      answer = math.eval(question);
+  } catch (err) {
+      return msg.reply(`Error: ${err}`);
+  }
+
+  const embed = new Discord.RichEmbed()
+  .setThumbnail('https://banner2.kisspng.com/20180215/ade/kisspng-office-supplies-animation-calculator-5a85e764e3aa68.4914103215187249649325.jpg')
+.setDescription(`**
+ السؤال يقولك :thinking:  : ${question}
+
+ طبعا الاجابة :writing_hand: : ${answer}**
+`)
+  msg.channel.send(embed)
+  }
+};
+});
