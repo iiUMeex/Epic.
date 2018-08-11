@@ -405,6 +405,7 @@ General's Commands. :earth_asia:
 -del-colors  لمسح الوان :rainbow: 
 -color number لاختيار اللون الي تبيه :rainbow:
 -colors لعرض قائمة الوان :regional_indicator_c:
+-s تبحث مثلا في قوقل :regional_indicator_g::regional_indicator_o::regional_indicator_o::regional_indicator_g::regional_indicator_l:
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -saraha للعب لعبة صراحه :regional_indicator_s: :regional_indicator_r: 
@@ -7661,7 +7662,7 @@ client.on('message', message => {
 ]
 
  client.on('message', message => {
-   if (message.content.startsWith("cuttweet")) {
+   if (message.content.startsWith("-cuttweet")) {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
@@ -7672,3 +7673,15 @@ client.on('message', message => {
   console.log('[id] Send By: ' + message.author.username)
     }
 });
+
+ client.on('message', async message => {
+if(message.author.bot) return;
+if (message.channel.guild) {
+if (message.content.startsWith(prefix + `s`)) {
+            const textQuery = message.content.split(' ').slice(1).join(' ');
+        const rebel = encode(message.content.split(' ').slice(1).join(' '));
+        const url = `https://lmgtfy.com/?q=${rebel}`;
+
+        if (!rebel) return message.channel.send(`من فضلك أكتب البحث , مثآل : \`${prefix}Lmgtfy How to create a Discord server\`.`);
+        else message.channel.send(`"${textQuery}"\n**<${url}>**`);
+}}});
