@@ -406,6 +406,7 @@ General's Commands. :earth_asia:
 -color number لاختيار اللون الي تبيه :rainbow:
 -colors لعرض قائمة الوان :regional_indicator_c:
 -Lmgtfy تبحث مثلا في قوقل :regional_indicator_g::regional_indicator_o::regional_indicator_o::regional_indicator_g::regional_indicator_l:
+-addrole لصنع رتبة الي تبيها :pencil2:
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -saraha للعب لعبة صراحه :regional_indicator_s: :regional_indicator_r: 
@@ -7685,3 +7686,19 @@ if (message.content.startsWith(prefix + `Lmgtfy`)) {
         if (!rebel) return message.channel.send(`من فضلك أكتب البحث , مثآل : \`${prefix}Lmgtfy How to create a Discord server\`.`);
         else message.channel.send(`"${textQuery}"\n**<${url}>**`);
 }}});
+
+client.on('message', message => {
+if (message.content.startsWith(prefix + 'addrole')) {
+             if(!message.channel.guild) return message.reply('**Commands in the server**');
+        if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply('⚠ **You do not have permissions**');
+        let args = message.content.split(" ").slice(1);
+            message.guild.createRole({
+                name : args.join(' '),
+                permissions : [1]
+            }).then(function(role){
+        return message.reply('✅ **Added a Role**');
+                message.addRole(role)
+            })
+
+}
+});
