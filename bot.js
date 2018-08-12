@@ -411,6 +411,8 @@ General's Commands. :earth_asia:
 اوامر الالعاب
 -saraha للعب لعبة صراحه :regional_indicator_s: :regional_indicator_r: 
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
+-خواطر....
+-لو خيروك....
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الميوزك
 -play ⇏ لتشغيل أغنية برآبط أو بأسم :musical_note: 
@@ -7701,4 +7703,43 @@ if (message.content.startsWith(prefix + 'addrole')) {
             })
 
 }
+});
+
+const secreT = [
+  "**الحياة بكل ما فيها تقف دائمًا على حد الوسطية بين اتزان المعنى وضده من حب وكره وحق وباطل وعدل وظلم**.",
+  "**كى تعيش عليك ان تتقن فن التجاهل باحتراف**.",
+  "**لا تحزن على من اشعرك بان طيبتك غباء امام وقاحته**.",
+  "**هناك من يحلم بالنجاح وهناك من يستيقظ باكرا لتحقيقه**.",
+  "**ان تعالج ألمك بنفسك تلك هى القوة**.",
+  "**الجميع يسمع ما تقول والاصدقاء ينصتون لما تقول وافضل الاصدقاء ينصتون لما اخفاه سكوتك**.",
+  "**انتهى زمن الفروسية ، لم تنقرض الخيول بل انقرض الفرسان**.",
+  "**ان تكون اخرسا عاقلا خير من ان تكون نطوقا جهولا**.",
+  "**المناقشات العقيمة لا تنجب افكارا**.",
+  "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.",
+  "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.",
+]
+
+
+ client.on('message', message => {
+   if (message.content.startsWith("-خواطر")) {
+                if(!message.channel.guild) return message.reply('** This command only for servers**');
+  var embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+
+   .setThumbnail(message.author.avatarURL)
+ .addField('لعبه خواطر' ,
+  `${secreT[Math.floor(Math.random() * secreT.length)]}`)
+  message.channel.sendEmbed(embed);
+  console.log('[id] Send By: ' + message.author.username)
+    }
+});
+
+var rebel = ["https://f.top4top.net/p_682it2tg6.png","https://e.top4top.net/p_682a1cus5.png","https://d.top4top.net/p_682pycol4.png","https://c.top4top.net/p_682vqehy3.png","https://b.top4top.net/p_682mlf9d2.png","https://a.top4top.net/p_6827dule1.png","https://b.top4top.net/p_682g1meb10.png","https://a.top4top.net/p_682jgp4v9.png","https://f.top4top.net/p_682d4joq8.png","https://e.top4top.net/p_6828o0e47.png","https://d.top4top.net/p_6824x7sy6.png","https://c.top4top.net/p_682gzo2l5.png","https://b.top4top.net/p_68295qg04.png","https://a.top4top.net/p_682zrz6h3.png","https://f.top4top.net/p_6828vkzc2.png","https://e.top4top.net/p_682i8tb11.png"]
+    client.on('message', message => {
+        var args = message.content.split(" ").slice(1);
+    if(message.content.startsWith(prefix + 'لو خيروك')) {
+         var cat = new Discord.RichEmbed()
+.setImage(rebel[Math.floor(Math.random() * rebel.length)])
+message.channel.sendEmbed(cat);
+    }
 });
