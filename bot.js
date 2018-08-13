@@ -7761,106 +7761,34 @@ if(message.content.startsWith("-slots")) {
 }
 });
 
-/**
- * ----------------DON'T REMOVE THIS-------------------
- * Created by Abady#1196 on 2018 June 20.
- * Copyright © 2018, Abdullah Saleh, All rights reserved.
- * SHARING THIS CODE AS OF IT YOUR OWN AND NOT INCLUDING THIS ME RIGHTS and/or MY NAME ON IT WILL LEAD YOU TO A COPYRIGHT PROBLEMS.
- * TO AVOID IT PLEASE DON'T REMOVE THIS SECTION.
- * This work is Protected by Creative Commons: http://creativecommons.org/licenses/by-nc-sa/4.0/
- * ----------------DON'T REMOVE THIS-------------------
- * 
- */
-const { Client } = require('discord.js');
-const client = new Client({ disableEveryone: true});
-client.login('NDc2NDUyNzEzNDI1NjY2MDQ5.DkuE6g.HgxvXt6a6w67n4qVsnlVcL8ZMg4')
-client.on(`ready`, () => console.log(`Ready!`))
-const channels = {};
+client.on('message', message => {
+  if(!message.guild) return;
+    if ( message.content == prefix+'v2min'){
+     let args = message.content.split(" ").slice(1);
+    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+message.channel.send('هل انت متأكد').then(msg => {
+    msg.react('✅')
+    .then(() => msg.react('❌'))
 
 
-client.on('voiceStateUpdate',async function(oldmember, member) {
-if(member.user.bot) return;
-if(member.voiceChannel === undefined && channels[member.id]) {
-console.log(member.guild.members.filter(m => m.voiceChannelID === channels[member.id].channel).size)
-if(member.guild.members.filter(m => m.voiceChannelID === channels[member.id].channel).size < 1) {
-member.guild.channels.get(channels[member.id].channel).delete();
-channels[member.id].channel = undefined;
-}
-}
-if(oldmember.voiceChannel !== undefined || member.voiceChannel !== undefined) {
-if(member.voiceChannelID === '478595134628298752') {
-member.guild.createChannel(member.displayName, "voice", [{
-id: member.id,
-allow: ['CONNECT'],
-}, {
-id: member.guild.id,
-deny: ['CONNECT']
-}]).then((channel)=> {
-    const parent = member.guild.channels.get('478595134628298752').parentID
-    channel.setParent(parent);
-    if(!channels[member.id]) channels[member.id] = {
-        channel: channel.id,
-        }
-member.user.send(`Hey **${member.displayName}** I've created a channel for you!
-------------------------------------------------------------
-Use \`\`-unlock [@user | all]\`\` to unlock for a specify or for all.
-Use \`\`-lock [@user | all]\`\` to lock & kick for a specify or for all in your voice channel.
-Use \`\`-rename [new name]\`\` to rename your voice channel name.
-------------------------------------------------------------
-`)
-member.setVoiceChannel(channel.id);
-})
-} else return undefined;
-}
-});
+    let YesFilter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+    let NoFilter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
 
-client.on(`message`, async message => {
-let args = message.content.trim().split(" ").slice(1); //substring(prefix.length) before split(" ") if you had a prefix.
-let user = message.mentions.users.first();
-if(message.content.startsWith("-unlock")) {
-if(channels[message.author.id] !== undefined) {
-if(user) {
-if(message.guild.channels.get(channels[message.author.id].channel).permissionsFor(user.id).has(`CONNECT`)) return message.channel.send(`**The user already can connect to your voice channel**\n to lock & kick user use \`\`!lock\`\` `);
-message.guild.channels.get(channels[message.author.id].channel).overwritePermissions(user.id, {
-CONNECT: true
-}).then(message.channel.send(`**${user.username}** can connect to your room now!`))
-} 
-else if(args.includes("all")) {
-message.guild.channels.get(channels[message.author.id].channel).overwritePermissions(message.guild.id, {
-CONNECT: true
-}).then(message.channel.send("**Everyone** can connect to your room now!"));
-} else return message.channel.send(`**Usage: !unlock [all | @user]**`)
-}
-}
-if(message.content.startsWith("-lock")) {
- if(channels[message.author.id] !== undefined) {
-if(user) {
-if(!message.guild.channels.get(channels[message.author.id].channel).permissionsFor(user.id).has(`CONNECT`)) return message.channel.send(`**The user already cannot connect to your voice channel**`);
-try {
-if(message.guild.members.get(user.id).voiceChannelID === channels[message.author.id].channel) {
-message.guild.members.get(user.id).setVoiceChannel('478595134628298752'); // المكان الي راح ينحطوله بعد ما يصير لهم lock 
-}   
-} catch (error) {
-console.log(error)
-}
-message.guild.channels.get(channels[message.author.id].channel).overwritePermissions(user.id, {
-CONNECT: false
-}).then(message.channel.send(`:x: **${user.username}** cannot connect to your room now!`))
-} 
-else if(args.includes("all")) {
-message.guild.channels.get(channels[message.author.id].channel).overwritePermissions(message.guild.id, {
-CONNECT: false
-}).then(message.channel.send(":x: **Everyone** cannot connect to your room now!"));
-} else return message.channel.send(`**Usage: -lock [all | @user]**`)
-}   
-}
-if(message.content.startsWith("-rename")) {
-if(channels[message.author.id] !== undefined) {
-if(args.length <= 0) return message.channel.send(`:scroll: **Hmmm the name please*`);
-if(message.content.length > 7+15) return message.channel.send(`:x: It appears that's the max letters allowed is **15**.`)
-const oldName = await message.guild.channels.get(channels[message.author.id].channel).name
-message.channel.send(`:pencil2: Renamed **\`\`${oldName}\`\`** to **\`\`${args.join(" ").toString()}\`\`** alright?`)
-message.guild.channels.get(channels[message.author.id].channel).setName(args.join(" ").toString());
-}
- }
+    let Yes = msg.createReactionCollector(YesFilter, { time: 15000 });
+    let No = msg.createReactionCollector(NoFilter, { time: 15000 });
+
+    No.on("collect", r => {
+message.guild.createChannel(args, 'voice').then(c => setTimeout(() => c.delete(), 120000))
+      message.channel.send(`☑ تم انشاء الروم بنجاح : \`${args}\``).then(c => setTimeout(() => c.edit(`<@${message.author.id}> ⏱  انتهى وقت الروم الصوتي`), 120000))
+        msg.delete();
+        })
+        
+
+                            No.on("collect", r => {
+                                msg.delete();
+                                message.channel.send(`تم الالغاء`).then(m => m.delete(1000));
+                                })
+                                })
+                                }
+
 });
