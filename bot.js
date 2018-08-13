@@ -7820,7 +7820,7 @@ channels[member.id].channel = undefined;
 }
 }
 if(oldmember.voiceChannel !== undefined || member.voiceChannel !== undefined) {
-if(member.voiceChannelID === 'آيدي شنل حق إنشاء الروم') {
+if(member.voiceChannelID === '478595134628298752') {
 member.guild.createChannel(member.displayName, "voice", [{
 id: member.id,
 allow: ['CONNECT'],
@@ -7828,16 +7828,16 @@ allow: ['CONNECT'],
 id: member.guild.id,
 deny: ['CONNECT']
 }]).then((channel)=> {
-    const parent = member.guild.channels.get('آيدي شنل حق إنشاء الروم').parentID
+    const parent = member.guild.channels.get('478595134628298752').parentID
     channel.setParent(parent);
     if(!channels[member.id]) channels[member.id] = {
         channel: channel.id,
         }
 member.user.send(`Hey **${member.displayName}** I've created a channel for you!
 ------------------------------------------------------------
-Use \`\`!unlock [@user | all]\`\` to unlock for a specify or for all.
-Use \`\`!lock [@user | all]\`\` to lock & kick for a specify or for all in your voice channel.
-Use \`\`!rename [new name]\`\` to rename your voice channel name.
+Use \`\`-unlock [@user | all]\`\` to unlock for a specify or for all.
+Use \`\`-lock [@user | all]\`\` to lock & kick for a specify or for all in your voice channel.
+Use \`\`-rename [new name]\`\` to rename your voice channel name.
 ------------------------------------------------------------
 `)
 member.setVoiceChannel(channel.id);
@@ -7849,7 +7849,7 @@ member.setVoiceChannel(channel.id);
 client.on(`message`, async message => {
 let args = message.content.trim().split(" ").slice(1); //substring(prefix.length) before split(" ") if you had a prefix.
 let user = message.mentions.users.first();
-if(message.content.startsWith("!unlock")) {
+if(message.content.startsWith("-unlock")) {
 if(channels[message.author.id] !== undefined) {
 if(user) {
 if(message.guild.channels.get(channels[message.author.id].channel).permissionsFor(user.id).has(`CONNECT`)) return message.channel.send(`**The user already can connect to your voice channel**\n to lock & kick user use \`\`!lock\`\` `);
@@ -7864,13 +7864,13 @@ CONNECT: true
 } else return message.channel.send(`**Usage: !unlock [all | @user]**`)
 }
 }
-if(message.content.startsWith("!lock")) {
+if(message.content.startsWith("-lock")) {
  if(channels[message.author.id] !== undefined) {
 if(user) {
 if(!message.guild.channels.get(channels[message.author.id].channel).permissionsFor(user.id).has(`CONNECT`)) return message.channel.send(`**The user already cannot connect to your voice channel**`);
 try {
 if(message.guild.members.get(user.id).voiceChannelID === channels[message.author.id].channel) {
-message.guild.members.get(user.id).setVoiceChannel('آيدي الشنل الي يروح له العضو بعد ما يصير له lock'); // المكان الي راح ينحطوله بعد ما يصير لهم lock 
+message.guild.members.get(user.id).setVoiceChannel('478595134628298752'); // المكان الي راح ينحطوله بعد ما يصير لهم lock 
 }   
 } catch (error) {
 console.log(error)
@@ -7883,10 +7883,10 @@ else if(args.includes("all")) {
 message.guild.channels.get(channels[message.author.id].channel).overwritePermissions(message.guild.id, {
 CONNECT: false
 }).then(message.channel.send(":x: **Everyone** cannot connect to your room now!"));
-} else return message.channel.send(`**Usage: !lock [all | @user]**`)
+} else return message.channel.send(`**Usage: -lock [all | @user]**`)
 }   
 }
-if(message.content.startsWith("!rename")) {
+if(message.content.startsWith("-rename")) {
 if(channels[message.author.id] !== undefined) {
 if(args.length <= 0) return message.channel.send(`:scroll: **Hmmm the name please*`);
 if(message.content.length > 7+15) return message.channel.send(`:x: It appears that's the max letters allowed is **15**.`)
