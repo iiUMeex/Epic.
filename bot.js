@@ -7916,3 +7916,8 @@ channel.guild.owner.send(`<@!${channelremover.id}>
   
 client.login("NDc2NDUyNzEzNDI1NjY2MDQ5.DkuE6g.HgxvXt6a6w67n4qVsnlVcL8ZMg4");
 //CODES ReBeL
+
+// playing
+client.on('ready', () => {                           
+client.user.setGame(`on 12 server | -help`,'https://www.twitch.tv/Epic'); 
+ });
