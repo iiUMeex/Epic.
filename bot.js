@@ -407,12 +407,14 @@ General's Commands. :earth_asia:
 -colors لعرض قائمة الوان :regional_indicator_c:
 -Lmgtfy تبحث مثلا في قوقل :regional_indicator_g::regional_indicator_o::regional_indicator_o::regional_indicator_g::regional_indicator_l:
 -addrole لصنع رتبة الي تبيها :pencil2:
+-dm يعرض لك معلومات عن البوت :regional_indicator_i: :regional_indicator_n: :regional_indicator_f: :regional_indicator_o:
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -saraha للعب لعبة صراحه :regional_indicator_s: :regional_indicator_r: 
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
 -خواطر....
 -لو خيروك....
+-slots....
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الميوزك
 -play ⇏ لتشغيل أغنية برآبط أو بأسم :musical_note: 
@@ -7742,4 +7744,48 @@ var rebel = ["https://f.top4top.net/p_682it2tg6.png","https://e.top4top.net/p_68
 .setImage(rebel[Math.floor(Math.random() * rebel.length)])
 message.channel.sendEmbed(cat);
     }
+});
+
+bot.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+  let prefix = botconfig.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+  if(cmd === `${prefix}botinfo`);
+  let bicon = bot.user.displyAvatarURL;
+  let botEmbed = new Discord.RichEmbed()
+
+.setDescription("Bot Information")
+.setcolor("#15f153")
+.setThumbnail(bicon)
+.addField("Bot Name", bot.user.username)
+.addField("Created on", bot.user.createdAt)
+.addField("Users", bot.users.size)
+.addField("Servers", bot.guilds.size)
+.addField("Channels", bot.channels.size)
+.addField("ID", bot.user.id)
+.addField("My Prefix", botconfig.token)
+.addField("My Language");
+
+    return message.channel.send(botEmbed);
+  }
+});
+
+client.on('message', message => {
+if(message.content.startsWith("$slots")) {
+  let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
+  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let we;
+  if(slots1 === slots2 && slots2 === slots3) {
+    we = "Win!"
+  } else {
+    we = "Lose!"
+  }
+  message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
+}
 });
