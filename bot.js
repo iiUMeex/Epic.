@@ -1102,7 +1102,6 @@ member.addRole(KinG66S[member.user.id].roles.shift());//! KinG66S.❤#0045
 }//! KinG66S.❤#0045
 });//! KinG66S.❤#0045
 
-bot.on("guildMemberAdd", member => {
 	const welcomer = bot.channels.get("455023485618749460");
       //*let welcomer = member.guild.channels.find("name","welcome");
       if(!welcomer) return;
