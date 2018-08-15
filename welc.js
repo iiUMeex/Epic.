@@ -71,4 +71,4 @@ const fs = require("fs");// npm i fs
       })
       });
 
-bot.login("NDc4NjAzNTc5NTI4MTgzODA4.DlNJ5g.y-0mM_mWONVW73i38jS1TvJiBFk");
+bot.login("NDc2NDUyNzEzNDI1NjY2MDQ5.DlXiVA.Exr7Wx_XG-HbHpm8AyDJ9cEFhQw");
