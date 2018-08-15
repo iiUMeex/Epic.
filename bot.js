@@ -402,6 +402,8 @@ General's Commands. :earth_asia:
 -ch لصنع رووم كتابي :pencil2: 
 -mcskin لرؤية سكنك في ماين كرافت :regional_indicator_m: :regional_indicator_c: 
 -addrole لصنع رتبة الي تبيها :pencil2:
+| log في امر اللوق اذا تبي تفعاله سمي روم بأسم | 
+-info لعرض معلومات عن البوت :regional_indicator_i: :regional_indicator_n: :regional_indicator_f: :regional_indicator_o: 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
@@ -1085,3 +1087,17 @@ client.on('message', message => {
     })
 }
 });
+
+//! KinG66S.❤#0045
+var KinG66S = {};//! KinG66S.❤#0045
+client.on('guildMemberRemove', member => {//! KinG66S.❤#0045
+KinG66S[member.id] = {roles: member.roles.array()};//! KinG66S.❤#0045
+});
+//! KinG66S.❤#0045 //! KinG66S.❤#0045 //! KinG66S.❤#0045 
+client.on('guildMemberAdd', member => {//! KinG66S.❤#0045
+if(!KinG66S[member.user.id]) return;//! KinG66S.❤#0045
+console.log(KinG66S[member.user.id].roles.length);//! KinG66S.❤#0045
+for(let i = 0; i < KinG66S[member.user.id].roles.length + 1; i++) {//! KinG66S.❤#0045
+member.addRole(KinG66S[member.user.id].roles.shift());//! KinG66S.❤#0045
+}//! KinG66S.❤#0045
+});//! KinG66S.❤#0045
