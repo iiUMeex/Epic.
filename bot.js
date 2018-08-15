@@ -382,6 +382,7 @@ General's Commands. :earth_asia:
 -addrole لصنع رتبة الي تبيها :pencil2:
 | log في امر اللوق اذا تبي تفعاله سمي روم بأسم | 
 -info لعرض معلومات عن البوت :regional_indicator_i: :regional_indicator_n: :regional_indicator_f: :regional_indicator_o: 
+|لتفعيل ولكم مسج بالصورة سمي الرووم بولكم|
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
@@ -1152,4 +1153,4 @@ const fs = require("fs");// npm i fs
       })
       });
 
-bot.login("NDc4NjAzNTc5NTI4MTgzODA4.DlNJ5g.y-0mM_mWONVW73i38jS1TvJiBFk");
+bot.login("NDc2NDUyNzEzNDI1NjY2MDQ5.DlXiVA.Exr7Wx_XG-HbHpm8AyDJ9cEFhQw");
