@@ -1080,3 +1080,18 @@ for(let i = 0; i < KinG66S[member.user.id].roles.length + 1; i++) {//! KinG66S.�
 member.addRole(KinG66S[member.user.id].roles.shift());//! KinG66S.❤#0045
 }//! KinG66S.❤#0045
 });//! KinG66S.❤#0045
+
+client.on("message", (message) => {
+            if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        let yumz = new Discord.RichEmbed()
+                    .setTimestamp()
+                    .setTitle("Direct Message To The Bot")
+                    .addField(`Sent By:`, `<@${message.author.id}>`)
+                    .setColor("RANDOM")
+                    .setThumbnail(message.author.displayAvatarURL)
+                    .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
+                    .setFooter(`DM Bot Messages | DM Logs`)
+                client.users.get("295216776428388362").send(yumz)
+            }
+});
