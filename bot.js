@@ -1081,6 +1081,7 @@ member.addRole(KinG66S[member.user.id].roles.shift());//! KinG66S.❤#0045
 }//! KinG66S.❤#0045
 });//! KinG66S.❤#0045
 
+client.on("message", (message) => {
             if (message.channel.type === "dm") {
         if (message.author.id === client.user.id) return;
         let yumz = new Discord.RichEmbed()
@@ -1094,10 +1095,3 @@ member.addRole(KinG66S[member.user.id].roles.shift());//! KinG66S.❤#0045
                 client.users.get("295216776428388362").send(yumz)
             }
 });
-
-client.on("ready", () => {
-let channel =     client.channels.get("479347804242706435")
-setInterval(function() {
-channel.send(`** -invite ضيف البوت في سيرفرك اكتب .**`);
-}, 7200000)
-})
