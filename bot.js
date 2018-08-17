@@ -143,7 +143,7 @@ msg.delete();
       client.on('message', message => {
         if (true) {
       if (message.content === '-invite') {
-            message.author.send('https://discordapp.com/api/oauth2/authorize?client_id=476452713425666049&permissions=0&scope=bot').catch(e => console.log(e.stack));
+            message.author.send('https://discordapp.com/api/oauth2/authorize?client_id=480063756563644427&permissions=8&scope=bot').catch(e => console.log(e.stack));
       
           }
          } 
