@@ -5,8 +5,7 @@ var jimp = require('jimp');// npm i jimp
 const fs = require("fs");// npm i fs
 
       bot.on('guildMemberAdd', member => {
-      const welcomer =  member.guild.channels.find('name', 'welcome');//اسم الروم الي يرحب فيه
-
+      const welcomer =  member.guild.channels.find('name', 'welcome');
       var Canvas = require('canvas')
       var jimp = require('jimp')
 
