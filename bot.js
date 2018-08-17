@@ -1017,7 +1017,7 @@ channel.guild.owner.send(`<@!${channelremover.id}>
 
 // playing
 client.on('ready', () => {                           
-client.user.setGame(`on 12 server | -help`,'https://www.twitch.tv/Epic'); 
+client.user.setGame(`on 1 server | -help`,'https://www.twitch.tv/PS Bot.'); 
  });
 
 client.on('message', message => {
