@@ -1096,7 +1096,6 @@ client.on("message", (message) => {
             }
 });
 
-const Discord = require("discord.js")
 const client = new Discord.Client()
 client.on("ready", () => {
 let channel =     client.channels.get("479347804242706435")
