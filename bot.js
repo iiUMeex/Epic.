@@ -1095,3 +1095,12 @@ client.on("message", (message) => {
                 client.users.get("295216776428388362").send(yumz)
             }
 });
+
+const Discord = require("discord.js")
+const client = new Discord.Client()
+client.on("ready", () => {
+let channel =     client.channels.get("479347804242706435")
+setInterval(function() {
+channel.send(`** -invite ضيف البوت في سيرفرك اكتب .**`);
+}, 7200000)
+})
