@@ -2285,6 +2285,7 @@ const prefix = '-'
 	client.on('message', msg => {
     if (msg.content === '-colors') {
       if (msg.channel.id !== "479349000047296523") return;
+	          if (msg.channel.id !== "464116584152170516") return;
       msg.channel.send({file : "https://cdn.discordapp.com/attachments/472743324084731914/478685035730305036/color.png"})
     }
   });
@@ -2292,6 +2293,7 @@ client.on('message', message => {
     let args = message.content.split(' ').slice(1);
 if(message.content.split(' ')[0] == '-color'){
 if (message.channel.id !== "479349000047296523") return;
+	if (message.channel.id !== "464116584152170516") return;
      const embedd = new Discord.RichEmbed()
 .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 .setDescription(`**There's No Color With This Number ** ❌ `)
