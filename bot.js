@@ -1103,3 +1103,23 @@ setInterval(function() {
 channel.send(`** -invite ضيف البوت في سيرفرك اكتب .**`);
 }, 7200000)
 })
+
+const devs = ['295216776428388362' , '444648241687166978' , '' , ''];
+client.on('message', message => {
+var prefix = "-";
+  if (!message.content.startsWith(prefix)) return;
+  var args = message.content.split(' ').slice(1);
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+
+if (message.content.startsWith(prefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : تم بنجاح تغيير الاسم ?`)
+  return message.reply("**تم تغيير الاسم البوت بنجاح ?**");
+} else
+if (message.content.startsWith(prefix + 'setimg')) {
+  client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغيير صورة البوت بنجاح ?`);
+
+}
+});
