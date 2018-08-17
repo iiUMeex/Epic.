@@ -716,7 +716,8 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
 
  `)//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
    message.channel.sendEmbed(embed)//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-    
+	 
+    client.login(process.env.BOT_TOKEN);
   ; }
    }) 
 
