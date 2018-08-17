@@ -2286,7 +2286,7 @@ const prefix = '-'
   });
 client.on('message', message => {
     let args = message.content.split(' ').slice(1);
-if(message.content.split(' ')[0] == 'لون'){
+if(message.content.split(' ')[0] == '-color'){
 if (message.channel.id !== "479349000047296523") return;
      const embedd = new Discord.RichEmbed()
 .setFooter('Requested by '+message.author.username, message.author.avatarURL)
