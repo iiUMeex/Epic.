@@ -383,6 +383,10 @@ General's Commands. :earth_asia:
 | log في امر اللوق اذا تبي تفعاله سمي روم بأسم | 
 -info لعرض معلومات عن البوت :regional_indicator_i: :regional_indicator_n: :regional_indicator_f: :regional_indicator_o: 
 | welcome لتفعيل ولكم مسج بالصورة سمي الرووم |
+-colors عرض قائمة الالوان :rainbow: 
+-color و الرقم الي تبيه :rainbow: 
+-createcolors لصنع الاوان في السيرفر :rainbow: 
+-deletecolors لمسح الاوان في السيرفر :rainbow: 
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
