@@ -1012,7 +1012,6 @@ channel.guild.owner.send(`<@!${channelremover.id}>
   },Otime)
   });
   
-client.login("NDc2NDUyNzEzNDI1NjY2MDQ5.DkuE6g.HgxvXt6a6w67n4qVsnlVcL8ZMg4");
 //CODES ReBeL
 
 // playing
