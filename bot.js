@@ -1104,7 +1104,6 @@ channel.send(`** -invite ضيف البوت في سيرفرك اكتب .**`);
 })
 
 const devs = ['295216776428388362' , '444648241687166978' , '' , ''];
-client.on('message', message => {
 var prefix = "-";
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
