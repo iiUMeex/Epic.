@@ -2399,7 +2399,6 @@ const fs = require("fs");// npm i fs
 client.login(process.env.BOT_TOKEN);
 
 client.on('message' , message => {
-  var prefix = "*";
   if(message.author.bot) return;
   if(message.content.startsWith(prefix + "send")) {
     let args = message.content.split(" ").slice(1);
