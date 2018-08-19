@@ -387,9 +387,11 @@ General's Commands. :earth_asia:
 -color و الرقم الي تبيه :rainbow: 
 -createcolors لصنع الاوان في السيرفر :rainbow: 
 -deletecolors لمسح الاوان في السيرفر :rainbow: 
+-send #Name Of Channel Text لارسال رساله مع منشن الرووم و الرساله
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
+-hack لعبة تهكير :joy:
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الميوزك
 -play ⇏ لتشغيل أغنية برآبط أو بأسم :musical_note: 
