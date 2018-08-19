@@ -359,12 +359,13 @@ client.on('message', message => {
 .setColor('RANDOM')
         .setDescription(`**
 
-╭━━━┳━━━┳━━┳━━━╮
-┃╭━━┫╭━╮┣┫┣┫╭━╮┃
-┃╰━━┫╰━╯┃┃┃┃┃╱╰╯
-┃╭━━┫╭━━╯┃┃┃┃╱╭╮
-┃╰━━┫┃╱╱╭┫┣┫╰━╯┃╭╮
-╰━━━┻╯╱╱╰━━┻━━━╯╰╯
+╔═══╦═══╗╔══╗───╔╗
+║╔═╗║╔═╗║║╔╗║──╔╝╚╗
+║╚═╝║╚══╗║╚╝╚╦═╩╗╔╝
+║╔══╩══╗║║╔═╗║╔╗║║
+║║──║╚═╝║║╚═╝║╚╝║╚╦╗
+╚╝──╚═══╝╚═══╩══╩═╩╝
+
 General's Commands. :earth_asia:
 -server - معلومات عن سيرفرك :scroll:
 -user - ملف حقك :flashlight:
@@ -388,10 +389,10 @@ General's Commands. :earth_asia:
 -createcolors لصنع الاوان في السيرفر :rainbow: 
 -deletecolors لمسح الاوان في السيرفر :rainbow: 
 -send #Name Of Channel Text لارسال رساله مع منشن الرووم و الرساله
+-servers يظهر لك البوت في كم سيرفر
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
--hack لعبة تهكير :joy:
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الميوزك
 -play ⇏ لتشغيل أغنية برآبط أو بأسم :musical_note: 
@@ -2436,34 +2437,12 @@ suggestchannel.send("@everyone  `||` @here ");
 }
 });
 
-client.on('message', message => {
-    if (message.content.startsWith("-hack")) {
-      if (message.author.bot) return
-           message.delete();
-             let args = message.content.split(' ').slice(1);
-                   let virusname = args.join(' ');
-                 if (virusname < 1) {
-                     return message.channel.send("``اكتب اسم الشخص الي تبي يتهكر``");
-                                     }
-                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
-             setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓ ] 1%').setColor(0xFF0000)})
-             }, 1000)
-            setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓] 25%').setColor(0xFF0000)})
-             }, 2000)
-           setTimeout(function() {     
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 100%').setColor(0xFF0000)})
-             }, 3000)
-                setTimeout(function() {
-               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 1...').setColor(0xFF0000)})
-             }, 4000)
-              setTimeout(function() {
-               m.delete()
-           }, 5000)
-             setTimeout(function() {
-               message.channel.send('تم تهكيرك')
-           }, 6000)
-           });
-         }
- });
+client.on('message', message => {/// الفا كود | Emoko#0001
+     if (message.content === "-servers") {
+         if(!message.channel.guild) return;
+     let embed = new Discord.RichEmbed()
+  .setColor("RANDOM") /// الفا كود | Emoko#0001
+  .addField("**سيرفرات يلي البوت موجود فيها: **" , client.guilds.size)
+  message.channel.sendEmbed(embed);
+    }/// الفا كود | Emoko#0001
+});
