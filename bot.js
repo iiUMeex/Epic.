@@ -2452,7 +2452,7 @@ client.on('message', message => {/// الفا كود | Emoko#0001
 
 const hastebin = require('hastebin-gen');
 client.on('message', message => {
-var PREFIX = 'البرفكس';
+var PREFIX = '-';
     if(message.content.startsWith(PREFIX + 'dis')) {
             var args = message.content.split(' ').slice(1).join(' ');
 }
