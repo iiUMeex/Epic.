@@ -354,6 +354,16 @@ client.on('message', async message => {
 });
 
 client.on('message', message => {
+            if (message.content.startsWith("-help")) {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     Help ' ,' تم ارسال الاوامر الي الخاص ✉  ')
+.setColor('#B101FC')
+  message.channel.sendEmbed(embed);
+    }
+});
+
+client.on('message', message => {
     if(message.content.startsWith(prefix+'help')) {
    const embed = new Discord.RichEmbed()
 .setColor('RANDOM')
@@ -410,15 +420,6 @@ General's Commands. :earth_asia:
 }
      
 });
-
-client.on('message', msg => {
-    if (msg.content === '-help') {
-      msg.reply('**Done | تــــم" , " |  تــــم ارســالك في الخــاص**');
-    }
-  });
-
-  //كود الرد التلقائي
-  //By EpicKinG.
 
 client.on("message", message => {
 
