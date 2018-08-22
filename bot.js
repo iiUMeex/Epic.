@@ -390,6 +390,7 @@ General's Commands. :earth_asia:
 -deletecolors لمسح الاوان في السيرفر :rainbow: 
 -send #Name Of Channel Text لارسال رساله مع منشن الرووم و الرساله
 -servers يظهر لك البوت في كم سيرفر
+-dis يجيبلك الاشخاص بالتاق لو تبي تغير تاقك
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
@@ -404,6 +405,7 @@ General's Commands. :earth_asia:
 -stop ⇏ لإخرآج البوت من الروم :musical_note:
 -np ⇏  لمعرفة الأغنية المشغلة حآليا :musical_note:
 -queue ⇏ لمعرفة قآئمة التشغيل :musical_note:
+-search ⇏ لبحث الي تبيه في يوتيوب :musical_note:
         **
         `)
     message.author.send(embed)
@@ -2471,7 +2473,7 @@ hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
 }).catch(console.error);
 });
 client.on('message' , message => {
-var PREFIX = 'البرفكس';
+var PREFIX = '-';
 if(message.content === `${PREFIX}dis`) {
                       let array = [];
                       var i = 0;
@@ -2489,7 +2491,7 @@ hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
         }
 });
 
-hero.on('guildMemberAdd',async member => {
+client.on('guildMemberAdd',async member => {
   const Canvas = require('canvas');
   const jimp = require('jimp');
   const w = ['./welcome_4.png'];
@@ -2546,4 +2548,20 @@ hero.on('guildMemberAdd',async member => {
  
 });
 });
+});
+
+client.on('message',async message => {
+  if(message.content.startsWith(prefix + "search")) {
+    const args = message.content.split(' ').slice(1).join(' ');
+    if(message.content.split(' ')[0] !== `${prefix}search`) return;
+    var Search = require('youtube-search'),
+    opts = {maxResults: 1, key: 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8', type: 'video'}
+
+    Search(args, opts, function(err, results) {
+      if(err) return console.log(err);
+
+      console.log(results);
+      message.channel.send(results[0].link);
+    });
+  }
 });
