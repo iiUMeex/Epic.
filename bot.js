@@ -390,11 +390,9 @@ General's Commands. :earth_asia:
 -deletecolors لمسح الاوان في السيرفر :rainbow: 
 -send #Name Of Channel Text لارسال رساله مع منشن الرووم و الرساله
 -servers يظهر لك البوت في كم سيرفر
--dis يجيبلك الاشخاص بالتاق لو تبي تغير تاقك
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
 -cuttweet للعب لعبة كت تويت :regional_indicator_c: :regional_indicator_u: :regional_indicator_t: 
--speed أسرع كتابه :speech_balloon: 
 ـــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الميوزك
 -play ⇏ لتشغيل أغنية برآبط أو بأسم :musical_note: 
@@ -2450,7 +2448,6 @@ client.on('message', message => {/// الفا كود | Emoko#0001
     }/// الفا كود | Emoko#0001
 });
 
-const hastebin = require('hastebin-gen');
 client.on('message', message => {
 var PREFIX = '-';
     if(message.content.startsWith(PREFIX + 'dis')) {
