@@ -2500,14 +2500,14 @@ client.on('guildMemberAdd',async member => {
           ctx.clip();
           ctx.drawImage(ava, 36, 21, 260, 260);
  			
-		  const c = hero.channels.get("479344756523008011");
+		  const c = client.channels.get("479344756523008011");
           c.sendFile(canvas.toBuffer());
  
 });
 });
 });
 
-client.on('message',async message => {
+  client.on('message',async message => {
   if(message.content.startsWith(prefix + "search")) {
     const args = message.content.split(' ').slice(1).join(' ');
     if(message.content.split(' ')[0] !== `${prefix}search`) return;
@@ -2522,3 +2522,4 @@ client.on('message',async message => {
     });
   }
 });
+
