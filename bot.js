@@ -2483,71 +2483,30 @@ client.on('guildMemberAdd',async member => {
 });
 });
 
-  client.on('message',async message => {
-  if(message.content.startsWith(prefix + "search")) {
-    const args = message.content.split(' ').slice(1).join(' ');
-    if(message.content.split(' ')[0] !== `${prefix}search`) return;
-    var Search = require('youtube-search'),
-    opts = {maxResults: 1, key: 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8', type: 'video'}
+client.on('message', message => {
+  if (!message.content.startsWith(PREFIX)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id !== "295216776428388362") return;
 
-    Search(args, opts, function(err, results) {
-      if(err) return console.log(err);
+if (message.content.startsWith(PREFIX + 'setgame')) {
+  client.user.setGame(argresult);
+    message.channel.sendMessage(`Playing: **${argresult}`)
+} 
 
-      console.log(results);
-      message.channel.send(results[0].link);
-    });
-  }
-});
+if (message.content.startsWith(PREFIX + 'setstream')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/v5bz");
+	 console.log('test' + argresult);
+    message.channel.sendMessage(`Streaming: **${argresult}`)
+} 
 
-var temp = {
-
-};
-var prefix = "-";
-client.on("message",(message) => {
-    if (message.channel.type !== "text") return;
-    if (!message.content.startsWith(prefix)) return;
-    switch(message.content.split(" ")[0].slice(prefix.length)) {
-        case "tempon" :
-            if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
-            temp[message.guild.id] = {
-                work : true,
-                channel : "Not Yet"
-            };
-            message.guild.createChannel("اضغط لصنع روم مؤقت").then(c => {
-                c.setPosition(1);
-                temp[message.guild.id].channel = c.id
-                message.channel.send("** Done.**");
-            });
-        break;
-        case "tempof" :
-        if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
-        message.guild.channels.get(temp[message.guild.id]).delete();
-            temp[message.guild.id] = {
-                work : false,
-                channel : "Not Yet"
-            };
-        message.channel.send("** Done.**");
-    };
-});
-client.on("voiceStateUpdate", (o,n) => {
-    if (!temp[n.guild.id]) return;
-    if (temp[n.guild.id].work == false) return;
-    if (n.voiceChannelID == temp[n.guild.id].channel) {
-        n.guild.createChannel(n.user.username, 'voice').then(c => {
-            n.setVoiceChannel(c);
-            c.overwritePermissions(n.user.id, {
-                CONNECT:true,
-                SPEAK:true,
-                MANAGE_CHANNEL:true,
-                MUTE_MEMBERS:true,
-                DEAFEN_MEMBERS:true,
-                MOVE_MEMBERS:true,
-                VIEW_CHANNEL:true  
-            });
-        })
-    };
-    if (!o.voiceChannel) return;
-    if (o.voiceChannel.name == o.user.username) {
-        o.voiceChannel.delete();
-    };
+if (message.content.startsWith(PREFIX + 'setname')) {
+  client.user.setUsername(argresult).then
+	  message.channel.sendMessage(`Username Changed To **${argresult}**`)
+  return message.reply("You Can change the username 2 times per hour");
+} 
+if (message.content.startsWith(PREFIX + 'setavatar')) {
+  client.user.setAvatar(argresult);
+   message.channel.sendMessage(`Avatar Changed Successfully To **${argresult}**`);
+}
 });
