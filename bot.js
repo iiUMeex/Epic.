@@ -12,7 +12,6 @@ client.on('message', msg => {
   }
 });
 
-client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
 
 client.on('message', msg => {
     if (msg.content === 'هلا') {
