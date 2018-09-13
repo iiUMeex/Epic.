@@ -2516,16 +2516,3 @@ client.on('messageUpdate', (message, newMessage) => {
 
 
 });
-
-const lol =
-[
-`welcome To The Server`
-]
-client.on('guildMemberAdd', member => {
-const codes = member.guild.channels.get("489805584183459866");//ايدي الشات
-if(!codes) return;
-if(codes) {
-codes.send(  `${lol[Math.floor(Math.random() * lol.length)]}`);          
-}
-});
-
