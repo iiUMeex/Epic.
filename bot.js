@@ -2499,7 +2499,7 @@ lient.on('message', message => {
        }
    });
 
-  -js client.on('channelCreate', channel => {
+   js client.on('channelCreate', channel => {
     
     if(!channel.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!channel.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
@@ -2673,3 +2673,9 @@ client.on('messageUpdate', (message, newMessage) => {
 
 
 });
+
+client.on('message', msg => {
+    if (msg.content === '.ا') {
+      msg.reply('**Welcome To __**KingBot Support**__ ,>>.');
+    }
+  });
