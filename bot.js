@@ -2499,7 +2499,6 @@ lient.on('message', message => {
        }
    });
 
-   js client.on('channelCreate', channel => {
     
     if(!channel.guild.member(client.user).hasPermission('EMBED_LINKS')) return;
     if(!channel.guild.member(client.user).hasPermission('VIEW_AUDIT_LOG')) return;
