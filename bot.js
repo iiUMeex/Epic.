@@ -872,24 +872,6 @@ message.guild.createChannel(args, 'voice').then(c => setTimeout(() => c.delete()
 
 });
 
-client.on('message', message => {
-            if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('-bcem')){
-message.channel.sendMessage('جار ارسال الرسالة |✅')
-client.users.forEach(m =>{
-    var bc = new
-Discord.RichEmbed()
-       .setColor('RANDOM')
-       .setTitle('Broadcast')
-       .addField('Server', message.guild.name)
-       .addField('Sender', message.author.username)
-       .addField('Message', args)
-    m.send({ embed: bc })
-})
-}
-});
-
 // playing
 client.on('ready', () => {                           
 client.user.setGame(`on 4 servers | -help`,'https://www.twitch.tv/PS Bot.'); 
@@ -2540,7 +2522,7 @@ const lol =
 `welcome To The Server`
 ]
 client.on('guildMemberAdd', member => {
-const codes = member.guild.channels.get("");//ايدي الشات
+const codes = member.guild.channels.get("489805584183459866");//ايدي الشات
 if(!codes) return;
 if(codes) {
 codes.send(  `${lol[Math.floor(Math.random() * lol.length)]}`);          
