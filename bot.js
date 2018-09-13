@@ -2640,12 +2640,6 @@ client.on('messageUpdate', (message, newMessage) => {
 
 });
 
-client.on('message', msg => {
-    if (msg.content === '.') {
-      msg.reply('**Welcome To** __**KingBot Support**__** ,>>.**');
-    }
-  });
-
 client.on('guildMemberAdd', (member) => {
 let channel = client.channels.get('489805584183459866')
 channel.send(`**Welcome To** __**KingBot Support**__ **,>>.**`)
