@@ -69,5 +69,3 @@ const fs = require("fs");// npm i fs
       })
       })
       });
-
-client.login(process.env.BOT_TOKEN);
