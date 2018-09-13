@@ -9,13 +9,6 @@ client.on('ready', () => {
 client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
 
 client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  }
-});
-
-
-client.on('message', msg => {
     if (msg.content === 'هلا') {
       msg.reply('هلا والله بيك');
     }
