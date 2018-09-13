@@ -2351,4 +2351,3 @@ client.on('messageDelete', message => {
        .setTimestamp();
      channel.send({embed:embed});
 
-});
