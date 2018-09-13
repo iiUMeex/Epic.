@@ -2648,6 +2648,5 @@ client.on('message', msg => {
 
 client.on('guildMemberAdd', (member) => {
 let channel = client.channels.get('489805584183459866')
-channel.send(`${member} **Welcome To** __**KingBot Support**__ **,>>.**`)
-}
+channel.send(`**Welcome To** __**KingBot Support**__ **,>>.**`)
 })
