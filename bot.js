@@ -6,6 +6,8 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
+
 client.on('message', msg => {
   if (msg.content === 'ping') {
     msg.reply('Pong!');
@@ -872,7 +874,7 @@ message.guild.createChannel(args, 'voice').then(c => setTimeout(() => c.delete()
 
 // playing
 client.on('ready', () => {                           
-client.user.setGame(`on 4 servers | -help`,'https://www.twitch.tv/PS Bot.'); 
+client.user.setGame(`on 4 servers | -help`,'https://www.twitch.tv/King Bot.'); 
  });
 
 client.on('message', message => {
