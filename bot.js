@@ -2487,7 +2487,7 @@ client.on("guildDelete", guild => {
 client.channels.get("489807149254443008").send(' ***  BOT  ***   **Leave From**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
 });
 
-lient.on('message', message => {
+bot.on('message', message => {
        if(message.content.startsWith(`${prefix}support`)){
            if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
            var embed = new Discord.RichEmbed()
