@@ -394,7 +394,7 @@ General's Commands. :earth_asia:
 -color و الرقم الي تبيه :rainbow: 
 -createcolors لصنع الاوان في السيرفر :rainbow: 
 -deletecolors لمسح الاوان في السيرفر :rainbow: 
--send #Name Of Channel Text لارسال رساله مع منشن الرووم و الرساله
+-send #Name Of Channel Text لارسال اقتراح مع منشن الرووم و الرساله
 -servers يظهر لك البوت في كم سيرفر
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 اوامر الالعاب
@@ -2297,84 +2297,12 @@ client.on('message', message => {/// الفا كود | Emoko#0001
     }/// الفا كود | Emoko#0001
 });
 
-client.on('guildMemberAdd',async member => {
-  const Canvas = require('canvas');
-  const jimp = require('jimp');
-  const w = ['./welcome_4.png'];
-        let Image = Canvas.Image,
-            canvas = new Canvas(800, 300),
-            ctx = canvas.getContext('2d');
-        ctx.patternQuality = 'bilinear';
-        ctx.filter = 'bilinear';
-        ctx.antialias = 'subpixel';
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-        ctx.shadowOffsetY = 2;
-        ctx.shadowBlur = 2;
-        ctx.stroke();
-        ctx.beginPath();
- 
-        fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
-            if (err) return console.log(err);
-            let BG = Canvas.Image;
-            let ground = new Image;
-            ground.src = Background;
-            ctx.drawImage(ground, 0, 0, 800, 300);
- 
-})
- 
-                let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".png" : member.user.displayAvatarURL;
-                jimp.read(url, (err, ava) => {
-                    if (err) return console.log(err);
-                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
-                 if (err) return console.log(err);
- 
-          ctx.font = '36px Arial';
-          ctx.fontSize = '72px';
-          ctx.fillStyle = "#ffffff";
-          ctx.textAlign = "center";
-          ctx.fillText(member.user.username, 545, 177);
-         
-          ctx.font = '16px Arial Bold';
-          ctx.fontSize = '72px';
-          ctx.fillStyle = "#ffffff";
-          ctx.textAlign = "center";
-          ctx.fillText(`${member.guild.memberCount} Members`, 580, 200);
-         
-          let Avatar = Canvas.Image;
-          let ava = new Avatar;
-          ava.src = buf;
-          ctx.beginPath();
-          ctx.arc(169.5, 148, 126.9, -100, Math.PI * 2, true);
-          ctx.closePath();
-          ctx.clip();
-          ctx.drawImage(ava, 36, 21, 260, 260);
- 			
-		  const c = client.channels.get("479344756523008011");
-          c.sendFile(canvas.toBuffer());
- 
-});
-});
-});
-
- client.on("guildCreate", guild => {
 client.channels.get("489807149254443008").send(' ***  BOT  ***   **Join To**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
 });
 
 client.on("guildDelete", guild => {
 client.channels.get("489807149254443008").send(' ***  BOT  ***   **Leave From**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
 });
-
-bot.on('message', message => {
-       if(message.content.startsWith(`-support`)){
-           if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
-           var embed = new Discord.RichEmbed()
-           .setTitle("Support Server")
-           .setURL("https://discord.gg/W6zaRZrك")
-           .setTimestamp()
-           .setColor("RANDOM")
-           message.channel.send({embed})
-       }
-   });
 
   client.on("roleUpdate", (re,updated) => {
     client.setTimeout(() => {
