@@ -2211,13 +2211,3 @@ suggestchannel.send("@everyone  `||` @here ");
     return;
 }
 });
-
-client.on('message', message => {/// الفا كود | Emoko#0001
-     if (message.content === "-servers") {
-         if(!message.channel.guild) return;
-     let embed = new Discord.RichEmbed()
-  .setColor("RANDOM") /// الفا كود | Emoko#0001
-  .addField("**سيرفرات يلي البوت موجود فيها: **" , client.guilds.size)
-  message.channel.sendEmbed(embed);
-    }/// الفا كود | Emoko#0001
-});
