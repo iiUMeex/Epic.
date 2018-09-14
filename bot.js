@@ -11,8 +11,6 @@ client.on('message', msg => {
   }
 });
 
-client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
-
 client.on('message', msg => {
     if (msg.content === 'هلا') {
       msg.reply('هلا والله بيك');
@@ -2230,3 +2228,5 @@ client.on("channelCreate",  cc => {
   channel.sendEmbed(embed)
   }
   });
+
+client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
