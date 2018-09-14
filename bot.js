@@ -2223,6 +2223,6 @@ client.on('message', message => {/// الفا كود | Emoko#0001
 });
 
 client.on("guildMemberAdd", (member) => {
+let channel = member.guild.channels.find('name', 'welcome');
 channel.send('**Welcome** ' + `${member}` + ' **To** ' + `__${member.guild.name}__` + ' **Server** :two_hearts:')          
 channel.sendFile(canvas.toBuffer());
- let channel = member.guild.channels.find('name', 'welcome');
