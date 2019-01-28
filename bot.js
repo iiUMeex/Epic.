@@ -165,31 +165,6 @@ client.on('message', message => {
     }
 });
 
-client.on('ready',async () => {
-setInterval(function(){
-var currentTime = new Date(),
-hours = currentTime.getHours() + 3 ,
-ReBeeL = currentTime.getMinutes(),
-ReBeeeL = currentTime.getSeconds(),
-Codes = currentTime.getFullYear(),
-CodeS = currentTime.getMonth() + 1,
-CoDeS = currentTime.getDate()
-if (ReBeeL < 10) {
-ReBeeL = "0" + ReBeeL;
-}
-var suffix = "AM";
-if (hours >= 12) {
-suffix = "PM";
-hours = hours - 12;
-}
-if (hours == 0) {
-hours = 12;
-}
-client.channels.find('id', 'ايدي الروم').setName(`Time - ${hours} : ${ReBeeL} : ${ReBeeeL} ${suffix}`) 
-client.channels.find('id', 'ايدي الروم').setName(`Date : ${Codes} - ${CodeS} - ${CoDeS}`)
-}, 1000);
-});
-
 client.on('message' , async (message) => {
 var prefix = "-"
     if(message.content.startsWith(prefix + "topinv")) {
@@ -232,6 +207,35 @@ if (message.content.toLowerCase().startsWith(prefix + 'banlist')){
 }
  });
 
-client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Costumer"));
-    });
+client.on('message' , message => {
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix + "ping")) {
+ message.channel.send('pong').then((msg) => {
+var PinG = `${Date.now() - msg.createdTimestamp}`
+var ApL = `${Math.round(client.ping)}`
+      msg.edit(`\`\`\`javascript\nTime taken: ${PinG} ms.\nDiscord API: ${ApL} ms.\`\`\``);
+ })
+  }  
+ });
+
+client.on('guildMemberAdd', member => {
+
+    const channel = member.guild.channels.find('name', '・text');
+  
+    const millis = new Date().getTime() - member.user.createdAt.getTime();
+    const now = new Date();
+    const createdAt = millis / 1000 / 60 / 60 / 24;
+
+
+
+
+  
+    const embed = new Discord.RichEmbed()
+    
+    .setColor("black")
+    .setDescription(`**تاريخ دخولك للدسكورد منذ ${createdAt.toFixed(0)} يوم**`)
+    .setAuthor(member.user.tag, member.user.avatarURL);
+    channel.sendEmbed(embed);
+
+  
+});
