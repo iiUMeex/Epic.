@@ -216,7 +216,6 @@ var ApL = `${Math.round(client.ping)}`
  })
   }  
  });
-
 client.on('guildMemberAdd', member => {
 
     const channel = member.guild.channels.find('name', 'welcome');
