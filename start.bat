@@ -1,3 +1,0 @@
-node welc.js
-
-PAUSE
