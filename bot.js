@@ -216,16 +216,33 @@ var ApL = `${Math.round(client.ping)}`
  })
   }  
  });
-client.on('guildMemberAdd', member => {
-  
-    const channel = member.guild.channels.find('name', 'welcome');
-    const millis = new Date().getTime() - member.user.createdAt.getTime();
-    const now = new Date();
-    const createdAt = millis / 1000 / 60 / 60 / 24;
-    const embed = new Discord.RichEmbed()
-    .setColor("black")
-    .setDescription(`**تاريخ دخولك للدسكورد منذ ${createdAt.toFixed(0)} يوم**`)
-    .setAuthor(member.user.tag, member.user.avatarURL);
-    channel.sendEmbed(embed);
+
+function welcomeMessage(tag) {
+
+var welcomeMessages = [`Welcome, ${tag}. We hope you brought pizza.`, `Welcome ${tag}. Leave your weapons by the door`,
+
+`Big ${tag} showed up!`, `${tag} hopped into the server. Kangaroo!!`, `${tag} just showed up. Hold my beer`, `Hey! Listen! ${tag}. has joined!`,
+
+`Swoooosh. ${tag} just landed`, `Ermagherd. ${tag} is here.`, 
+
+`${tag} is here , i can see it!`, `${tag} has joined the server! It's super effective!`,`Welcome, ${tag} We were expecting you ( ͡° ͜ʖ ͡°)`]
+
+return welcomeMessages[Math.floor(Math.random()*welcomeMessages.length)]
+
+}
+
+
+
+client.on("guildMemberAdd", member => {
+
+   var welc = new Discord.RichEmbed()
+
+  .setColor('RANDOM')
+
+  .addField("**⇢**", welcomeMessage(member), true)
+
+   var welcome_channel = member.guild.channels.find("name", "_welcome_");
+
+   welcome_channel.send(welc)
 
 });
