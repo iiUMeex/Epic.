@@ -219,7 +219,7 @@ var ApL = `${Math.round(client.ping)}`
 
 client.on('guildMemberAdd', member => {
 
-    const channel = member.guild.channels.find('name', '・text');
+    const channel = member.guild.channels.find('name', 'welcome');
   
     const millis = new Date().getTime() - member.user.createdAt.getTime();
     const now = new Date();
