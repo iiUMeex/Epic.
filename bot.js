@@ -1111,7 +1111,7 @@ let embed = new Discord.RichEmbed()
 };
 });
 
-if(cmd === `${prefix}rainbow`){
+if( cmd === `${prefix}rainbow`){
         let rainbowrole = message.guild.roles.find('name', "👑 | RainBow");
         if(!message.member.roles.find('name', '# VIP')) return message.reply(`:x: - **انت لا تمتلك رتبه 👑 | VIP**`);
         message.member.addRole(rainbowrole);
@@ -1120,7 +1120,7 @@ if(cmd === `${prefix}rainbow`){
         .setColor("GREEN")
         message.channel.send(rainbowembed);
     }
-    if(cmd === `${prefix}rainbow`){
+    if( cmd === `${prefix}rainbow`){
         let rainbowrole = message.guild.roles.find('name', "👑 | RainBow");
         if(!message.member.roles.find('name', '# VIP')) return message.reply(`:x: - **انت لا تمتلك رتبه 👑 | VIP**`);
         if(message.member.roles.has('name'. rainbowrole)){
