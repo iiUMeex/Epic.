@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const fs = require("fs");
 let prefix = "#"
 
 
@@ -70,7 +71,6 @@ client.on(`ready`, () => {
 });
 
 client.on('message' , message => {
-  var prefix = "*";
   if(message.author.bot) return;
   if(message.content.startsWith(prefix + "ping")) {
  message.channel.send('Pong...').then((msg) => {
@@ -80,7 +80,6 @@ client.on('message' , message => {
  });
  
 client.on('message', msg => {
-	var prefix = "*";
   if (msg.author.bot) return;
   if (!msg.content.startsWith(prefix)) return;
   let command = msg.content.split(" ")[0];
@@ -105,7 +104,6 @@ client.on('message', msg => {
 });
 
 client.on('message', ra3d => {
-var prefix = "*";
                         let args = ra3d.content.split(" ").slice(1).join(" ")
 if(ra3d.content.startsWith(prefix + 'ccolors')) {
     if(!args) return ra3d.channel.send('`How Many Colors??`');
@@ -122,7 +120,7 @@ if(ra3d.content.startsWith(prefix + 'ccolors')) {
        });
 
 client.on('message', message => {
-    if (message.content.startsWith("*bot")) {
+    if (message.content.startsWith("#bot")) {
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
@@ -144,7 +142,6 @@ client.on('message', message => {
 });
 
 client.on('message',async Epic => {
-  var prefix = "*" ;
   if(Epic.content.startsWith(prefix + "vonline")) {
   if(!Epic.guild.member(Epic.author).hasPermissions('MANAGE_CHANNELS')) return Epic.reply(':x: **I Dont Have Permissions**');
   if(!Epic.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return Epic.reply(':x: **You Dont Have Permissions**');
@@ -162,7 +159,6 @@ client.on('message',async Epic => {
 });
 
 client.on('message', message => {
-	var prefix = "*";
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
@@ -206,7 +202,6 @@ message.react("❌")
     });
 
 client.on("message", message => {
-	var prefix = "*";
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
@@ -254,7 +249,7 @@ client.on("message", message => {
 });
 
 client.on('message', message => {
-    if (message.content === "*rooms") {
+    if (message.content === "#rooms") {
         if (message.author.bot) return
                       if (!message.guild) return;
 
@@ -274,7 +269,6 @@ client.on('ready', () => {
   });
 
 client.on('message', message => {
-var prefix = "*";
       if(message.content === prefix + "hchannel") {
       if(!message.channel.guild) return;
       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Perms :x:');
@@ -287,7 +281,6 @@ var prefix = "*";
 
 
 client.on('message', message => {
-var prefix = "*";
       if(message.content === prefix + "schannel") {
       if(!message.channel.guild) return;
       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(':x:');
@@ -299,7 +292,6 @@ var prefix = "*";
 });
 
 client.on('message',function(message) {
-	let prefix = "*";
 let args = message.content.split(" ").slice(1).join(" ");
 if(message.content.startsWith(prefix + "say")) {
 if(!args) return;
@@ -311,7 +303,6 @@ message.channel.send(`**# ${args}**`);
 
 client.on('message', async message =>{
   if (message.author.boss) return;
-	var prefix = "*";
 
 if (!message.content.startsWith(prefix)) return;
 	let command = message.content.split(" ")[0];
@@ -369,7 +360,6 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
 });
 
 client.on('message', message => {
-	var prefix = "*";
     if(message.content.startsWith(prefix + 'mvall')) {
      if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**:x: You Dont Have Perms `MOVE_MEMBERS`**');
        if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
@@ -386,7 +376,6 @@ client.on('message', message => {
        });
 
 client.on('message', message => {
-	var prefix = "*"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -423,7 +412,6 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-	var prefix = "*"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -460,7 +448,6 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-var prefix = "*";
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
@@ -487,7 +474,7 @@ var prefix = "*";
 });
 
 client.on('message', message => {
-   if (message.content.startsWith("*id")) {
+   if (message.content.startsWith("#id")) {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
 
                var mentionned = message.mentions.users.first();
@@ -512,33 +499,8 @@ client.on('message', message => {
     }
 });
 
-
 client.on('message', message => {
-        if (message.content === "-invite") {
-            if(!message.channel.guild) return;
-        let embed = new Discord.RichEmbed()
-        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-        .setTitle(`➡ Click Here `)
-        .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=539560833097793584&permissions=8&scope=bot`)
-        .setThumbnail(" https://cdn.discordapp.com/attachments/541262079169134594/541705205817802784/123456789.png")        
-     message.channel.sendEmbed(embed);
-       }
-   });
-   
-   client.on('message', message => {
-        if (message.content === "*invinte") {
-            if(!message.channel.guild) return;
-        let embed = new Discord.RichEmbed()
-        .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
-        .setTitle(`➡ Click Here `)
-        .setURL(`https://discordapp.com/oauth2/authorize?client_id=400489866573512705&permissions=8&scope=bot`)
-        .setThumbnail(" https://cdn.discordapp.com/avatars/377904849783750667/6c76e412f18c142dfd711d05fb363869.png?size=2048")        
-     message.channel.sendEmbed(embed);
-       }
-   });
- 
-client.on('message', message => {
-    if (message.content.startsWith("*avatar")) {
+    if (message.content.startsWith("#avatar")) {
 if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
     var client;
@@ -555,7 +517,6 @@ if(!message.channel.guild) return;
 });
 
 client.on('message', message => {
-            var prefix = "*";
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
 
@@ -576,7 +537,7 @@ client.on('message', message => {
 
 
    client.on('message', message => {
-     if (message.content === "*support") {
+     if (message.content === "#support") {
      let embed = new Discord.RichEmbed()
   .setAuthor(message.author.username)
   .setColor("#9B59B6")
@@ -587,7 +548,6 @@ client.on('message', message => {
     }
 });
 client.on('message', omar => {
-var prefix = "*";
 if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
@@ -608,7 +568,6 @@ omar.reply("✅ `Success Deleted All Roles - Ranks`")
 });
 
 client.on('message', message => {
-	var prefix = "*";
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'clear')) {
 if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
@@ -650,7 +609,6 @@ msg.delete();
 
   
 client.on("message", message => {
-    var prefix = "*";
     const command = message.content.split(" ")[0];
 
     if(command == prefix+"kv"){
@@ -684,7 +642,7 @@ client.on("message", message => {
 client.on('message',async message => {
     const moment = require('moment');
 const ms = require('ms')
-    var prefix = '*' //بريفكس البوت
+    var prefix = '#' //بريفكس البوت
   var time = moment().format('Do MMMM YYYY , hh:mm');
   var room;
   var title;
@@ -780,7 +738,6 @@ client.on("guildMemberAdd", member => {
 })
 
 client.on("message", message => {
-let prefix = "*";
 let args = message.content.split(' ');
   if(args[0].toLowerCase() === (prefix + "server")) {
         let embed = new Discord.RichEmbed()
@@ -800,13 +757,6 @@ let args = message.content.split(' ');
 
 });
 
-client.on('guildCreate', guild => {
-    var embed = new Discord.RichEmbed()
-    .setColor(0x5500ff)
-    .setDescription(`**[*] شكراً لك لإضافه البوت الى سيرفرك بريفكس البوت**`)
-        guild.owner.send(embed)
-  });
-
 client.on('message', message => {
   if(message.content.includes('discord.gg')){
                                           if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
@@ -815,15 +765,6 @@ client.on('message', message => {
   return message.reply(`** Not allowed to advertising Here :angry: ! **`)
   }
 }
-});
-
-client.on('guildMemberAdd', member => {
-  
-  const channel = member.guild.channels.find(ch => ch.name === 'army');
- 
-  if (!channel) return;
-
-  channel.send(`**Welcome To** __**The Army**__ :two_hearts: :coffee:, ${member}`);
 });
 
 client.on('guildMemberAdd', member => {
@@ -974,7 +915,7 @@ client.on('message', message => {
 
 client.on('guildMemberAdd', member => {
 
-    const channel = member.guild.channels.find('name', 'army');
+    const channel = member.guild.channels.find('name', 'welcome');
   
     const millis = new Date().getTime() - member.user.createdAt.getTime();
     const now = new Date();
@@ -1016,7 +957,6 @@ client.on('message', message => {
 
 client.on("message", async message => {
             if(!message.channel.guild) return;
-            var prefix = "*";
         if(message.content.startsWith(prefix + 'invites')) {
         var nul = 0
         var guild = message.guild
