@@ -1110,4 +1110,25 @@ let embed = new Discord.RichEmbed()
   }});
 };
 });
+
+if(cmd === `${prefix}rainbow`){
+        let rainbowrole = message.guild.roles.find('name', "👑 | RainBow");
+        if(!message.member.roles.find('name', '# VIP')) return message.reply(`:x: - **انت لا تمتلك رتبه 👑 | VIP**`);
+        message.member.addRole(rainbowrole);
+        var rainbowembed = new Discord.RichEmbed()
+        .setTitle(`:white_check_mark: - **تم إعطائك الرتبه**`)
+        .setColor("GREEN")
+        message.channel.send(rainbowembed);
+    }
+    if(cmd === `${prefix}rainbow`){
+        let rainbowrole = message.guild.roles.find('name', "👑 | RainBow");
+        if(!message.member.roles.find('name', '# VIP')) return message.reply(`:x: - **انت لا تمتلك رتبه 👑 | VIP**`);
+        if(message.member.roles.has('name'. rainbowrole)){
+            message.member.removeRole(rainbowrole);
+            var rainbowembed = new Discord.RichEmbed()
+            .setTitle(`:white_check_mark: - **تم إزاله الرتبه**`)
+            .setColor("RED")
+            message.channel.send(rainbowembed);
+        }
+    }
 client.login(process.env.BOT_TOKEN);
