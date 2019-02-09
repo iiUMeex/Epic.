@@ -1111,27 +1111,6 @@ let embed = new Discord.RichEmbed()
 };
 });
 
-if( cmd === `${prefix}rainbow`){
-        let rainbowrole = message.guild.roles.find('name', "👑 | RainBow");
-        if(!message.member.roles.find('name', '# VIP')) return message.reply(`:x: - **انت لا تمتلك رتبه 👑 | VIP**`);
-        message.member.addRole(rainbowrole);
-        var rainbowembed = new Discord.RichEmbed()
-        .setTitle(`:white_check_mark: - **تم إعطائك الرتبه**`)
-        .setColor("GREEN")
-        message.channel.send(rainbowembed);
-    }
-    if( cmd === `${prefix}rainbow`){
-        let rainbowrole = message.guild.roles.find('name', "👑 | RainBow");
-        if(!message.member.roles.find('name', '# VIP')) return message.reply(`:x: - **انت لا تمتلك رتبه 👑 | VIP**`);
-        if(message.member.roles.has('name'. rainbowrole)){
-            message.member.removeRole(rainbowrole);
-            var rainbowembed = new Discord.RichEmbed()
-            .setTitle(`:white_check_mark: - **تم إزاله الرتبه**`)
-            .setColor("RED")
-            message.channel.send(rainbowembed);
-        }
-    }
-
 client.on('message', message => {//new msg event
 if(!message.channel.guild) return;
   if(message.content.startsWith(prefix + 'rainbow')) {//to create the rainbow role
@@ -1149,6 +1128,16 @@ if(!message.channel.guild) return;
 }
 message.channel.send('Done The Rainbow Role Setup Has Been Completed')//if the step completed
 }})
+
+if( cmd === `${prefix}rainbow`){
+        let rainbowrole = message.guild.roles.find('name', "👑 | RainBow");
+        if(!message.member.roles.find('name', '# VIP')) return message.reply(`:x: - **انت لا تمتلك رتبه 👑 | VIP**`);
+        message.member.addRole(rainbowrole);
+        var rainbowembed = new Discord.RichEmbed()
+        .setTitle(`:white_check_mark: - **تم إعطائك الرتبه**`)
+        .setColor("GREEN")
+        message.channel.send(rainbowembed);
+    }
 
 client.on('ready', () => {//new ready event
   setInterval(function(){
