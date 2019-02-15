@@ -71,23 +71,6 @@ client.on(`ready`, () => {
     });
 });
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const fs = require("fs");
-let prefix = "*"
-
-
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  }
-});
-
 client.on('message', message => { ///////// ALPHA  , Codes ///// Galal
     if (message.content.startsWith("*help")) { ///////// ALPHA  , Codes ///// Galal
 
@@ -99,7 +82,7 @@ message.author.send(`
 ╱╱┃┃╱┃┃┃┃╰╯┃┃┃┃╰╯┃┃━┫┃┃╰━╯┃╰╯┃╰╮
 ╱╱╰╯╱╰╯╰┻━━┻╯╰┻━━┻━━┻╯╰━━━┻━━┻━╯
 
-**__الاوامــر االعامه__** :earth_africa:
+*الاوامــر االعامه** :earth_africa:
 **
 ${prefix}id : أمر ألايدي
 ${prefix}clr [number] : لمسح الشات بعدد
@@ -114,7 +97,7 @@ ${prefix}count : عدد اعضاء السيرفر
 ${prefix}find : (اي حرق من الاسم الي تبيه)
 ${prefix}server
 
-**__الاوامــر الاداريه__** :closed_lock_with_key:
+**الاوامــر الاداريه** :closed_lock_with_key:
 ${prefix}mute @user
 ${prefix}unmute @user
 ${prefix}ban @user (unban soon !)
@@ -129,7 +112,7 @@ ${prefix}dc [delete channels]
 
 (لو تبي تسوي ويلكم مسج سوي روم بأسم welcome)
 
-**__الاوامــر أخري__** :red_circle: 
+**الاوامــر أخري** :red_circle: 
 ${prefix}ping
 ${prefix}support
 ${prefix}invite
