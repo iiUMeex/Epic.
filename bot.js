@@ -95,7 +95,6 @@ ${prefix}invites
 ${prefix}inviteCodes
 ${prefix}count : عدد اعضاء السيرفر
 ${prefix}find : (اي حرق من الاسم الي تبيه)
-${prefix}server
 
 **الاوامــر الاداريه** :closed_lock_with_key:
 ${prefix}mute @user
