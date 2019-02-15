@@ -101,6 +101,7 @@ ${prefix}server
 ${prefix}mute @user
 ${prefix}unmute @user
 ${prefix}ban @user (unban soon !)
+${prefix}kick @user reason
 ${prefix}gstart - room [no mention to room] time - present
 ${prefix}move @user
 ${prefix}role @user [role name] (still updating it)
@@ -109,6 +110,7 @@ ${prefix}schannel
 ${prefix}mvall
 ${prefix}mutechannel
 ${prefix}dc [delete channels]
+${prefix}vonline
 
 (لو تبي تسوي ويلكم مسج سوي روم بأسم welcome)
 
@@ -126,7 +128,6 @@ ${prefix}embed
 }); ///////// ALPHA , Codes ///// Galal
 
  client.on('message' , message => {
-  var prefix = "*";
   if(message.author.bot) return;
   if(message.content.startsWith(prefix + "ping")) {
  message.channel.send('Pong...').then((msg) => {
@@ -136,7 +137,6 @@ ${prefix}embed
  });
  
 client.on('message', msg => {
-	var prefix = "*";
   if (msg.author.bot) return;
   if (!msg.content.startsWith(prefix)) return;
   let command = msg.content.split(" ")[0];
@@ -161,7 +161,6 @@ client.on('message', msg => {
 });
 
 client.on('message', ra3d => {
-var prefix = "*";
                         let args = ra3d.content.split(" ").slice(1).join(" ")
 if(ra3d.content.startsWith(prefix + 'ccolors')) {
     if(!args) return ra3d.channel.send('`How Many Colors??`');
@@ -178,7 +177,7 @@ if(ra3d.content.startsWith(prefix + 'ccolors')) {
        });
 
 client.on('message', message => {
-    if (message.content.startsWith("*bot")) {
+    if (message.content.startsWith("#bot")) {
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
@@ -200,7 +199,6 @@ client.on('message', message => {
 });
 
 client.on('message',async Epic => {
-  var prefix = "*" ;
   if(Epic.content.startsWith(prefix + "vonline")) {
   if(!Epic.guild.member(Epic.author).hasPermissions('MANAGE_CHANNELS')) return Epic.reply(':x: **I Dont Have Permissions**');
   if(!Epic.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return Epic.reply(':x: **You Dont Have Permissions**');
@@ -218,7 +216,6 @@ client.on('message',async Epic => {
 });
 
 client.on('message', message => {
-	var prefix = "*";
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'move')) {
  if (message.member.hasPermission("MOVE_MEMBERS")) {
@@ -251,7 +248,7 @@ message.react("❌")
 
  client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='*count')
+      if(message.content =='#count')
       var IzRo = new Discord.RichEmbed()
       .setThumbnail(message.author.avatarURL)
       .setFooter(message.author.username, message.author.avatarURL)
@@ -262,7 +259,6 @@ message.react("❌")
     });
 
 client.on("message", message => {
-	var prefix = "*";
 	var args = message.content.split(' ').slice(1); 
 	var msg = message.content.toLowerCase();
 	if( !message.guild ) return;
@@ -310,7 +306,7 @@ client.on("message", message => {
 });
 
 client.on('message', message => {
-    if (message.content === "*rooms") {
+    if (message.content === "#rooms") {
         if (message.author.bot) return
                       if (!message.guild) return;
 
@@ -330,7 +326,6 @@ client.on('ready', () => {
   });
 
 client.on('message', message => {
-var prefix = "*";
       if(message.content === prefix + "hchannel") {
       if(!message.channel.guild) return;
       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Perms :x:');
@@ -343,7 +338,6 @@ var prefix = "*";
 
 
 client.on('message', message => {
-var prefix = "*";
       if(message.content === prefix + "schannel") {
       if(!message.channel.guild) return;
       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(':x:');
@@ -355,7 +349,6 @@ var prefix = "*";
 });
 
 client.on('message',function(message) {
-	let prefix = "*";
 let args = message.content.split(" ").slice(1).join(" ");
 if(message.content.startsWith(prefix + "say")) {
 if(!args) return;
@@ -366,7 +359,6 @@ message.channel.send(`**# ${args}**`);
   
 
 client.on('message', message => {
-	var prefix = "*";
     if(message.content.startsWith(prefix + 'mvall')) {
      if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**:x: You Dont Have Perms `MOVE_MEMBERS`**');
        if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
@@ -383,7 +375,6 @@ client.on('message', message => {
        });
 
 client.on('message', message => {
-	var prefix = "*"
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -420,7 +411,6 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-var prefix = "*";
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
@@ -515,7 +505,6 @@ if(!message.channel.guild) return;
 });
 
 client.on('message', message => {
-            var prefix = "*";
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
 
@@ -547,7 +536,6 @@ client.on('message', message => {
     }
 });
 client.on('message', omar => {
-var prefix = "*";
 if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
 if (!omar.channel.guild) return;
 if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
@@ -568,7 +556,6 @@ omar.reply("✅ `Success Deleted All Roles - Ranks`")
 });
 
 client.on('message', message => {
-	var prefix = "*";
    if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'clear')) {
 if(!message.channel.guild) return message.channel.send('**This Command is Just For Servers**').then(m => m.delete(5000));
@@ -611,7 +598,7 @@ msg.delete();
 client.on('message',async message => {
     const moment = require('moment');
 const ms = require('ms')
-    var prefix = '*' //بريفكس البوت
+    var prefix = '#' //بريفكس البوت
   var time = moment().format('Do MMMM YYYY , hh:mm');
   var room;
   var title;
@@ -705,13 +692,6 @@ client.on("guildMemberAdd", member => {
 انت العضو رقم ${member.guild.memberCount} `) 
 }).catch(console.error)
 })
-
-client.on('guildCreate', guild => {
-    var embed = new Discord.RichEmbed()
-    .setColor(0x5500ff)
-    .setDescription(`**[*] شكراً لك لإضافه البوت الى سيرفرك بريفكس البوت**`)
-        guild.owner.send(embed)
-  });
 
 client.on('message', message => {
   if(message.content.includes('discord.gg')){
