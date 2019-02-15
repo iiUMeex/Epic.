@@ -102,7 +102,7 @@ message.author.send(`
 **__الاوامــر االعامه__** :earth_africa:
 **
 ${prefix}id : أمر ألايدي
-${prefix}clr [numder] : لمسح الشات بعدد
+${prefix}clr [number] : لمسح الشات بعدد
 ${prefix}clear : لمسح الشات
 ${prefix}bot : معلمومات عن البوت
 ${prefix}avatar : يعرض لك افاتارك
